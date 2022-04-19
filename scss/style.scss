@@ -1,0 +1,215 @@
+@import "./guideline";
+@import "./mixin";
+
+// 通用
+* {
+    @include all();
+}
+body.modal-open {
+    padding-right: 0px !important;
+    overflow-y: auto;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-size: 1rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    padding-right: 0 !important;
+    position: relative;
+    // background-color: $primary-table;
+    @include mobile-XS() {
+        font-size: 0.875rem;
+    }
+    @include navbar();
+    @include footer();
+    @include breadcrumb();
+    @include back-top();
+    @include form();
+    @include datepicker();
+    @include table();
+    @include searchbar();
+    @include fullcalendar();
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        position: relative;
+        padding-top: calc(56px + 32px);
+
+        section {
+            width: 100%;
+        }
+        .brief-p {
+            margin-bottom: $m-S;
+        }
+        // 一般
+        .section-normal {
+            ul:not(.nav, .breadcrumb) {
+                padding: 0;
+                li:not(.nav-item) {
+                    line-height: 2;
+                    color: $text;
+                    list-style: decimal;
+                    list-style-position: inside;
+                }
+            }
+
+            h6 {
+                margin-bottom: $p-XXS;
+            }
+            h4 {
+                margin-bottom: $p-XXS;
+            }
+            h3,
+            h4,
+            h5 {
+                margin-top: $m-S;
+                margin-bottom: $p-XXS;
+            }
+            img {
+                margin-top: $m-XS;
+            }
+            .nav.nav-pills {
+                padding: 0;
+                .nav-item {
+                    margin: $p-XXS;
+                    margin-left: 0;
+                    @include mobile-L {
+                        margin: $p-XS;
+                        margin-left: 0;
+                    }
+                    a.tab {
+                        border: solid 1px $secondary;
+                        padding: $m-XXS $p-XXS;
+                        font-size: $size-p;
+                        color: black;
+                        border-radius: 4px;
+                        @include mobile-L {
+                            font-size: $size-h5;
+                        }
+                    }
+                    .active {
+                        background-color: rgba($color: $secondary, $alpha: 0.1);
+                    }
+                }
+            }
+            .tab-content {
+                background-color: rgba($color: $secondary, $alpha: 0.1);
+                padding: $p-XS $p-S;
+                margin-top: $m-XS;
+                .tab-pane {
+                    h4:not(:first-child) {
+                        margin-top: $m-XS;
+                    }
+                    a {
+                        width: 100%;
+                        line-height: 2;
+                    }
+                }
+                button {
+                    margin: $m-XS 0;
+                    width: 15%;
+                    @include mobile-L {
+                        width: 100%;
+                    }
+                }
+            }
+            .btn-gp {
+                margin-top: $m-S;
+                button {
+                    margin-right: $m-XS;
+                }
+            }
+            .icon-gp {
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: $m-S;
+                a {
+                    margin-right: $m-S;
+                    margin-bottom: $m-S;
+                    img {
+                        width: 40px;
+                        height: 40px;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+        // index
+        .section-menu {
+            display: flex;
+            justify-content: space-between;
+            .block {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                flex-direction: column;
+                width: 45%;
+                border: solid 1px $primary-tint;
+                padding: $p-2L 0;
+                background-color: white;
+                border-radius: 10px;
+                img {
+                    height: 100px;
+                }
+                h3 {
+                    margin-top: $m-S;
+                }
+            }
+        }
+        // 查詢
+        .section-map {
+            display: flex;
+            justify-content: space-between;
+            margin-top: $m-XS;
+            @include pad{
+                flex-wrap: wrap;
+            }
+            .map {
+                width: 30%;
+                @include web-S{
+                    width: 40%;
+                }
+                svg {
+                    @include pad() {
+                        width: 80vw;
+                    }
+                    polygon,
+                    path {
+                        cursor: pointer;
+                        &:hover {
+                            fill: $secondary;
+                        }
+                    }
+                }
+            }
+            .content {
+                margin: 0;
+                padding: 0;
+                width: 30%;
+                @include web-S{
+                    width: 35%;
+                }
+                @include pad{
+                    width: 100%;
+                }
+            }
+            .info {
+                width: 30%;
+                @include web-S{
+                    width: 25%;
+                }
+                @include pad{
+                    width: 100%;
+                }
+                .text-gp {
+                    margin-bottom: $m-S;
+                }
+            }
+        }
+    }
+}

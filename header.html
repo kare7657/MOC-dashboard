@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>header</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="fontawesome-free/js/all.min.js">
+    <!-- our css -->
+    <link rel="stylesheet" href="scss/style.css">
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="pc">
+            <div class="top">
+                <div class="left">
+                    <a href="index.html" class="logo">
+                        <img src="img/logo.png" alt="logo">
+                        <h1>獎補助儀表板</h1>
+                    </a>
+                </div>
+                <div class="right">
+                    <a href="#U" id="AU" title="右上方功能區塊" accesskey="U"></a>
+                    <div class="btn">
+                        <ul>
+                            <li><a href="">列印此頁</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mobile">
+            <div class="menu">
+                <div class="fas fa-bars">
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="onecity.html.html">單一縣市查詢</a></li>
+                    <li><a href="citys.html">多縣市查詢</a></li>
+                </ul>
+            </div>
+            <div class="logo">
+                <img src="img/logo.png" alt="logo">
+                <a href="index.html">
+                        <h1 class="title">獎補助儀表板</h1>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- mobile-menu -->
+    <script>
+        var fas = document.querySelector(".fas.fa-bars")
+        var navbar_nav = document.querySelector(".nav.navbar-nav")
+        var nav_item = document.querySelector(".nav-item.dropdown")
+        fas.onclick = function () {
+            if (navbar_nav.classList.contains("active-ul")) {
+                navbar_nav.classList.remove("active-ul")
+            } else {
+                navbar_nav.classList.add("active-ul")
+            }
+        }
+    </script>
+
+</body>
+
+</html>

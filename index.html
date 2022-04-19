@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>獎補助儀表板</title>
+	<!-- Font Awesome Icons -->
+	<link rel="stylesheet" href="fontawesome-free/css/all.min.css">
+	<link rel="stylesheet" href="scss/bootstrap.4.2.css">
+	<link rel="stylesheet" href="scss/style.css">
+</head>
+
+<body>
+	<!-- navbar -->
+	<header id="header"></header>
+	<main>
+		<section class="section-menu container">
+			<a href="onecity.html" class="block">
+				<img src="img/onecity.svg" alt="">
+				<h3>單一縣市查詢</h3>
+			</a>
+			<a href="citys.html" class="block">
+				<img src="img/citys.svg" alt="">
+				<h3>多縣市查詢</h3>
+			</a>
+		</section>
+	</main>
+
+	<!-- jQuery Knob -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.knob.min.js"></script>
+	<!-- bootstrap -->
+	<script src="js/bootstrap.min.4.2.js"></script>
+	<script src="js/popper.min.js"></script>
+	<!-- chartjs -->
+	<script src="js/chart2.8.js"></script>
+	<script src="js/utils.js"></script>
+	<script src="js/chartjs-plugin-labels.min.js"></script>
+
+	<!-- mobile-menu -->
+	<script>
+		var fas = document.querySelector(".fas.fa-bars")
+		var navbar_nav = document.querySelector(".nav.navbar-nav")
+		var nav_item = document.querySelector(".nav-item.dropdown")
+		fas.onclick = function () {
+			if (navbar_nav.classList.contains("active-ul")) {
+				navbar_nav.classList.remove("active-ul")
+			} else {
+				navbar_nav.classList.add("active-ul")
+			}
+		}
+	</script>
+
+	<!-- 引入html header&footer -->
+	<script>
+		$(function () {
+			$("#header").load('header.html');
+		});
+	</script>
+
+
+</body>
+
+</html>
