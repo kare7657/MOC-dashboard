@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="zh-hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>獎補助儀表板</title>
+	<!-- Font Awesome Icons -->
+	<link rel="stylesheet" href="fontawesome-free/css/all.min.css">
+	<link rel="stylesheet" href="scss/bootstrap.4.2.css">
+	<link rel="stylesheet" href="scss/style.css">
+</head>
+
+<body>
+	<!-- navbar -->
+	<header id="header"></header>
+	<main>
+		<!-- breadcrumb -->
+		<div class="breadcrumb">
+			<div class="container">
+				<ul>
+					<li><a href="index.html"><i class="fas fa-home"></i></a></li>
+					<li>></li>
+					<li><a href="onecity.html">單一縣市查詢</a></li>
+					<li>></li>
+					<li><span>查詢結果</span></li>
+				</ul>
+			</div>
+		</div>
+		<h2 class="w-100 text-center">臺中市申請總計 300 件</h2>
+		<span class="note text-center">總額：100,000 元</span>
+		<section class="section-normal container">
+			<div class="overview">
+				<p>縣市：臺中市</p>
+				<p>年度：110</p>
+				<p>補助對象：縣市，團體，個人，中央機關及其所屬</p>
+			</div>
+			<div class="chart-gp">
+				<h3>總申請件數比例圖</h3>
+				<div id="chart-money" class="pie-chart"></div>
+				<h3>總申請金額比例圖</h3>
+				<div id="chart-num" class="pie-chart"></div>
+			</div>
+			<table class="mb-separate">
+				<thead>
+					<tr>
+						<th>申請中</th>
+						<th>審查中</th>
+						<th>已核定</th>
+						<th>不補助</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td data-title="申請中"><a href="">詳細資料</a></td>
+						<td data-title="審查中"><a href="">詳細資料</a></td>
+						<td data-title="已核定"><a href="">詳細資料</a></td>
+						<td data-title="不補助"><a href="">詳細資料</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</main>
+
+	<!-- jQuery Knob -->
+	<script src="js/jquery.min.js"></script>
+	<!-- bootstrap -->
+	<script src="js/bootstrap.min.4.2.js"></script>
+	<script src="js/popper.min.js"></script>
+	<!-- chartjs -->
+	<script src="js/echarts.js"></script>
+
+	<!-- mobile-menu -->
+	<script>
+		var fas = document.querySelector(".fas.fa-bars")
+		var navbar_nav = document.querySelector(".nav.navbar-nav")
+		var nav_item = document.querySelector(".nav-item.dropdown")
+		fas.onclick = function () {
+			if (navbar_nav.classList.contains("active-ul")) {
+				navbar_nav.classList.remove("active-ul")
+			} else {
+				navbar_nav.classList.add("active-ul")
+			}
+		}
+	</script>
+
+	<!-- 引入html header&footer -->
+	<script>
+		$(function () {
+			$("#header").load('header.html');
+		});
+	</script>
+
+	<!-- tab -->
+	<script>
+		var btn_year = document.querySelector("#year")
+		var btn_range = document.querySelector("#year_range")
+		var content = document.querySelector("#content1")
+		var content2 = document.querySelector("#content2")
+
+		function clearActive() {
+			content.classList.remove("active")
+			content2.classList.remove("active")
+		}
+
+		btn_year.onclick = function () {
+			clearActive()
+			content.classList.toggle("active")
+		}
+
+		btn_range.onclick = function () {
+			clearActive()
+			content2.classList.toggle("active")
+		}
+
+	</script>
+
+	<!-- chart -->
+	<script>
+		// 總申請金額
+		var chart_money = echarts.init(document.getElementById('chart-money'));
+		option = {
+			tooltip: {
+				trigger: 'item',
+				formatter: '{b}: {c} ({d}%)'
+			},
+			legend: {
+				data: [
+					'申請中金額',
+					'審查中金額',
+					'已核定金額',
+					'不補助金額',
+				]
+			},
+			series: [
+				{
+					type: 'pie',
+					radius: '65%',
+					labelLine: {
+						length: 30
+					},
+					label: {
+						formatter: ' {b|{b}：}{c} 元 {per|{d}%}  ',
+						backgroundColor: '#F6F8FC',
+						borderColor: '#8C8D8E',
+						borderWidth: 1,
+						borderRadius: 4,
+						rich: {
+							a: {
+								color: '#6E7079',
+								lineHeight: 22,
+								align: 'center'
+							},
+							hr: {
+								borderColor: '#8C8D8E',
+								width: '100%',
+								borderWidth: 1,
+								height: 0
+							},
+							b: {
+								color: '#4C5058',
+								fontSize: 14,
+								fontWeight: 'bold',
+								lineHeight: 33
+							},
+							per: {
+								color: '#fff',
+								backgroundColor: '#4C5058',
+								padding: [3, 4],
+								borderRadius: 4
+							}
+						}
+					},
+					data: [
+						{ value: 35000, name: '申請中金額' },
+						{ value: 30000, name: '審查中金額' },
+						{ value: 30000, name: '已核定金額' },
+						{ value: 5000, name: '不補助金額' },
+					]
+				}
+			]
+		};
+		chart_money.setOption(option);
+
+		// 總申請件數
+		var chart_num = echarts.init(document.getElementById('chart-num'));
+		option = {
+			tooltip: {
+				trigger: 'item',
+				formatter: '{b}: {c} ({d}%)'
+			},
+			legend: {
+				data: [
+					'申請中件數',
+					'審查中件數',
+					'已核定件數',
+					'不補助件數',
+				]
+			},
+			series: [
+				{
+					type: 'pie',
+					radius: '65%',
+					labelLine: {
+						length: 30
+					},
+					label: {
+						formatter: ' {b|{b}：}{c} 件 {per|{d}%}  ',
+						backgroundColor: '#F6F8FC',
+						borderColor: '#8C8D8E',
+						borderWidth: 1,
+						borderRadius: 4,
+						rich: {
+							a: {
+								color: '#6E7079',
+								lineHeight: 22,
+								align: 'center'
+							},
+							hr: {
+								borderColor: '#8C8D8E',
+								width: '100%',
+								borderWidth: 1,
+								height: 0
+							},
+							b: {
+								color: '#4C5058',
+								fontSize: 14,
+								fontWeight: 'bold',
+								lineHeight: 33
+							},
+							per: {
+								color: '#fff',
+								backgroundColor: '#4C5058',
+								padding: [3, 4],
+								borderRadius: 4
+							}
+						}
+					},
+					data: [
+						{ value: 105, name: '申請中件數' },
+						{ value: 90, name: '審查中件數' },
+						{ value: 90, name: '已核定件數' },
+						{ value: 15, name: '不補助件數' },
+					]
+				}
+			]
+		};
+
+		chart_num.setOption(option);
+
+	</script>
+
+</body>
+
+</html>

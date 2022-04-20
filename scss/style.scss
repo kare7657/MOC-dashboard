@@ -37,8 +37,10 @@ body {
         flex-wrap: wrap;
         flex-direction: column;
         position: relative;
-        padding-top: calc(56px + 32px);
-
+        padding-top: calc(60px + 16px);
+        @include pad {
+            padding-top: 60px;
+        }
         section {
             width: 100%;
         }
@@ -137,24 +139,57 @@ body {
                     }
                 }
             }
+            // chart
+            .chart-gp{
+                .pie-chart{
+                    margin: $m-S 0;
+                    width: 100%;
+                    height: 600px;
+                    @include pad{
+                        height: 400px;
+                    }
+                    @include mobile-L{
+                        width: 300px;
+                        height: 200px;
+                    }
+                }
+            }
         }
         // index
         .section-menu {
             display: flex;
             justify-content: space-between;
+            height: 80vh;
+            align-items: center;
+            @include mobile-L{
+                height: initial;
+                flex-wrap: wrap;
+                margin-top: $m-S;
+            }
             .block {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 flex-wrap: wrap;
                 flex-direction: column;
-                width: 45%;
+                width: 47%;
                 border: solid 1px $primary-tint;
                 padding: $p-2L 0;
                 background-color: white;
                 border-radius: 10px;
+                @include mobile-L{
+                    width: 100%;
+                    margin-bottom: $m-M;
+                    padding: $p-L 0;
+                }
                 img {
                     height: 100px;
+                    @include mobile-L{
+                        height: 80px;
+                    }
+                    @include mobile-XS{
+                        height: 70px;
+                    }
                 }
                 h3 {
                     margin-top: $m-S;
@@ -166,13 +201,13 @@ body {
             display: flex;
             justify-content: space-between;
             margin-top: $m-XS;
-            @include pad{
+            @include pad {
                 flex-wrap: wrap;
             }
             .map {
                 width: 30%;
-                @include web-S{
-                    width: 40%;
+                @include web-S {
+                    width: 35%;
                 }
                 svg {
                     @include pad() {
@@ -188,26 +223,50 @@ body {
                 }
             }
             .content {
+                width: 60%;
+                display: flex;
+                align-items: start;
+                justify-content: space-between;
                 margin: 0;
                 padding: 0;
-                width: 30%;
-                @include web-S{
-                    width: 35%;
-                }
-                @include pad{
+                @include pad {
                     width: 100%;
+                    flex-wrap: wrap;
                 }
-            }
-            .info {
-                width: 30%;
-                @include web-S{
-                    width: 25%;
+                .left {
+                    width: 47%;
+                    @include pad {
+                        width: 100%;
+                    }
+                    .info {
+                        @include pad{
+                            display: flex;
+                            justify-content: space-between;
+                            flex-wrap: wrap;
+                        }
+                        .text-gp {
+                            margin-bottom: $m-S;
+                            @include pad{
+                                width: 48%;
+                            }
+                            @include mobile-L{
+                                width: 100%;
+                            }
+                            .note {
+                                font-size: $size-caption;
+                                color: $complementary;
+                            }
+                            .notice {
+                                padding: 0;
+                            }
+                        }
+                    }
                 }
-                @include pad{
-                    width: 100%;
-                }
-                .text-gp {
-                    margin-bottom: $m-S;
+                .right {
+                    width: 47%;
+                    @include pad {
+                        width: 100%;
+                    }
                 }
             }
         }
