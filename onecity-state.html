@@ -23,11 +23,13 @@
 					<li>></li>
 					<li><a href="onecity.html">單一縣市查詢</a></li>
 					<li>></li>
-					<li><span>查詢結果</span></li>
+					<li><a href="onecity-result.html">查詢結果</a></li>
+					<li>></li>
+					<li><span>案件狀態</span></li>
 				</ul>
 			</div>
 		</div>
-		<h2 class="w-100 text-center">臺中市申請總計 300 件</h2>
+		<h2 class="w-100 text-center">臺中市申請中 105 件</h2>
 		<span class="note text-center">總額：100,000 元</span>
 		<section class="section-normal container">
 			<div class="overview">
@@ -36,26 +38,24 @@
 				<p>補助對象：縣市，團體，個人，中央機關及其所屬</p>
 			</div>
 			<div class="chart-gp">
-				<h3>總申請件數比例圖</h3>
-				<div id="chart_money" class="pie-chart"></div>
-				<h3>總申請金額比例圖</h3>
-				<div id="chart_num" class="pie-chart"></div>
+				<h3>經資比例圖</h3>
+				<div id="chart_type" class="pie-chart"></div>
+				<h3>申請金額級距比例圖</h3>
+				<div id="chart_range" class="pie-chart"></div>
 			</div>
 			<table class="mb-separate">
 				<thead>
 					<tr>
-						<th>申請中</th>
-						<th>審查中</th>
-						<th>已核定</th>
-						<th>不補助</th>
+						<th>≥5000萬件數</th>
+						<th>&gt;1000萬&lt;5000萬件數</th>
+						<th>≤1000萬件數</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td data-title="申請中"><a href="onecity-state.html">詳細資料</a></td>
-						<td data-title="審查中"><a href="onecity-state.html">詳細資料</a></td>
-						<td data-title="已核定"><a href="onecity-state.html">詳細資料</a></td>
-						<td data-title="不補助"><a href="onecity-state.html">詳細資料</a></td>
+						<td data-title="≥5000萬件數"><a href="onecity-detail.html">詳細資料</a></td>
+						<td data-title="&gt;1000萬&lt;5000萬件數"><a href="onecity-detail.html">詳細資料</a></td>
+						<td data-title="≤1000萬件數"><a href="onecity-detail.html">詳細資料</a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -117,9 +117,8 @@
 
 	<!-- chart -->
 	<script>
-		// 總申請金額
-		var chart_money = echarts.init(document.getElementById('chart_money'));
-
+		// 經資門比例
+		var chart_type = echarts.init(document.getElementById('chart_type'));
 		option = {
 			tooltip: {
 				trigger: 'item',
@@ -127,16 +126,15 @@
 			},
 			legend: {
 				data: [
-					'申請中金額',
-					'審查中金額',
-					'已核定金額',
-					'不補助金額',
-				],
+					'資本門金額',
+					'經常門金額',
+				]
 			},
 			series: [
 				{
+					// name: '金額：100,000',
 					type: 'pie',
-					radius: '60%',
+					radius: '65%',
 					labelLine: {
 						length: 40
 					},
@@ -166,6 +164,7 @@
 							},
 							c: {
 								lineHeight: 25,
+								align: 'center',
 							},
 							per: {
 								color: '#fff',
@@ -173,44 +172,48 @@
 								padding: [3, 4],
 								borderRadius: 4,
 								lineHeight: 25,
+								align: 'center',
 							}
 						}
 					},
 					data: [
-						{ value: 35000, name: '申請中金額' },
-						{ value: 30000, name: '審查中金額' },
-						{ value: 30000, name: '已核定金額' },
-						{ value: 5000, name: '不補助金額' },
+						{ value: 60000, name: '資本門金額' },
+						{ value: 40000, name: '經常門金額' },
 					]
 				}
 			]
 		};
-		chart_money.setOption(option);
 
-		// 總申請件數
-		var chart_num = echarts.init(document.getElementById('chart_num'));
+
+		chart_type.setOption(option);
+
+
+		// 申請金額級距
+		var chart_range = echarts.init(document.getElementById('chart_range'));
 		option = {
 			tooltip: {
 				trigger: 'item',
-				formatter: '{b}: {c} ({d}%)'
+				formatter: '{a} <br/>{b}: {c} ({d}%)'
 			},
 			legend: {
 				data: [
-					'申請中件數',
-					'審查中件數',
-					'已核定件數',
-					'不補助件數',
-				],
+					'≥5000萬件數',
+					'>1000萬<5000萬件數',
+					'≤1000萬件數',
+				]
 			},
 			series: [
 				{
+					name: '申請金額：100,000 元',
 					type: 'pie',
-					radius: '60%',
+					radius: '65%',
 					labelLine: {
 						length: 40
 					},
 					label: {
-						formatter: ['{b|{b}}',
+						formatter: ['{a|{a}}{abg|}',
+							'{hr|}',
+							'{b|{b}}',
 							'{hr|}',
 							' {c} 件 {per|{d}%} ',
 						].join('\n'),
@@ -218,7 +221,14 @@
 						borderColor: '#8C8D8E',
 						borderWidth: 1,
 						borderRadius: 4,
+						align: 'center',
 						rich: {
+							a: {
+								color: '#6E7079',
+								lineHeight: 22,
+								padding: [6, 6],
+								align: 'center',
+							},
 							hr: {
 								borderColor: '#8C8D8E',
 								width: '100%',
@@ -234,7 +244,7 @@
 								align: 'center',
 							},
 							c: {
-								lineHeight: 25,
+								align: 'center',
 							},
 							per: {
 								color: '#fff',
@@ -242,19 +252,20 @@
 								padding: [3, 4],
 								borderRadius: 4,
 								lineHeight: 25,
+								align: 'center',
 							}
 						}
 					},
 					data: [
-						{ value: 105, name: '申請中件數' },
-						{ value: 90, name: '審查中件數' },
-						{ value: 90, name: '已核定件數' },
-						{ value: 15, name: '不補助件數' },
-					]
+						{ value: 30, name: '≥5000萬件數' },
+						{ value: 40, name: '>1000萬<5000萬件數' },
+						{ value: 20, name: '≤1000萬件數' },
+					],
 				}
 			]
 		};
-		chart_num.setOption(option);
+
+		chart_range.setOption(option);
 
 	</script>
 
