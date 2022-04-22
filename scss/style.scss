@@ -152,6 +152,17 @@ body {
                         height: 500px;
                     }
                 }
+                .line-chart {
+                    margin: $m-S 0;
+                    height: 600px;
+                    @include mobile-L {
+                        height: 500px;
+                    }
+                }
+            }
+            table {
+                margin-top: $m-XS;
+                margin-bottom: $m-L;
             }
         }
         // index

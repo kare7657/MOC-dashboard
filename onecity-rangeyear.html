@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="zh-hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>獎補助儀表板</title>
+	<!-- Font Awesome Icons -->
+	<link rel="stylesheet" href="fontawesome-free/css/all.min.css">
+	<link rel="stylesheet" href="scss/bootstrap.4.2.css">
+	<link rel="stylesheet" href="scss/style.css">
+</head>
+
+<body>
+	<!-- navbar -->
+	<header id="header"></header>
+	<main>
+		<!-- breadcrumb -->
+		<div class="breadcrumb">
+			<div class="container">
+				<ul>
+					<li><a href="index.html"><i class="fas fa-home"></i></a></li>
+					<li>></li>
+					<li><a href="onecity.html">單一縣市查詢</a></li>
+					<li><span>歷年查詢結果</span></li>
+				</ul>
+			</div>
+		</div>
+		<h2 class="w-100 text-center">臺中市申請中 105 件</h2>
+		<span class="note text-center">總額：100,000 元</span>
+		<section class="section-normal container">
+			<div class="overview">
+				<p>縣市：臺中市</p>
+				<p>年度：109~111</p>
+				<p>補助對象：縣市，團體，個人，中央機關及其所屬</p>
+				<p>總申請件數：300</p>
+				<p>總申請金額：1,000,000</p>
+			</div>
+			<div class="chart-gp">
+				<h3>總申請件數</h3>
+				<div id="lineChart_num" class="line-chart"></div>
+			</div>
+			<table class="mb-separate">
+				<thead>
+					<tr>
+						<th>年度</th>
+						<th>總申請件數</th>
+						<th>核定件數</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td data-title="年度">全部</td>
+						<td data-title="總申請件數">1000</td>
+						<td data-title="核定件數">480</td>
+					</tr>
+					<tr>
+						<td data-title="年度">109年</td>
+						<td data-title="總申請件數">300</td>
+						<td data-title="核定件數">100</td>
+					</tr>
+					<tr>
+						<td data-title="年度">110年</td>
+						<td data-title="總申請件數">200</td>
+						<td data-title="核定件數">80</td>
+					</tr>
+					<tr>
+						<td data-title="年度">111年</td>
+						<td data-title="總申請件數">500</td>
+						<td data-title="核定件數">300</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="chart-gp">
+				<h3>歷年核定金額</h3>
+				<div id="lineChart_money" class="line-chart"></div>
+			</div>
+			<table class="mb-separate">
+				<thead>
+					<tr>
+						<th>年度</th>
+						<th>申請總金額</th>
+						<th>核定金額</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td data-title="年度">全部</td>
+						<td data-title="申請總金額">300000</td>
+						<td data-title="核定金額">150000</td>
+					</tr>
+					<tr>
+						<td data-title="年度">109年</td>
+						<td data-title="申請總金額">100000</td>
+						<td data-title="核定金額">60000</td>
+					</tr>
+					<tr>
+						<td data-title="年度">110年</td>
+						<td data-title="申請總金額">80000</td>
+						<td data-title="核定金額">40000</td>
+					</tr>
+					<tr>
+						<td data-title="年度">111年</td>
+						<td data-title="申請總金額">120000</td>
+						<td data-title="核定金額">50000</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</main>
+
+	<!-- jQuery Knob -->
+	<script src="js/jquery.min.js"></script>
+	<!-- bootstrap -->
+	<script src="js/bootstrap.min.4.2.js"></script>
+	<script src="js/popper.min.js"></script>
+	<!-- chartjs -->
+	<script src="js/echarts.js"></script>
+
+	<!-- mobile-menu -->
+	<script>
+		var fas = document.querySelector(".fas.fa-bars")
+		var navbar_nav = document.querySelector(".nav.navbar-nav")
+		var nav_item = document.querySelector(".nav-item.dropdown")
+		fas.onclick = function () {
+			if (navbar_nav.classList.contains("active-ul")) {
+				navbar_nav.classList.remove("active-ul")
+			} else {
+				navbar_nav.classList.add("active-ul")
+			}
+		}
+	</script>
+
+	<!-- 引入html header&footer -->
+	<script>
+		$(function () {
+			$("#header").load('header.html');
+		});
+	</script>
+
+	<!-- tab -->
+	<script>
+		var btn_year = document.querySelector("#year")
+		var btn_range = document.querySelector("#year_range")
+		var content = document.querySelector("#content1")
+		var content2 = document.querySelector("#content2")
+
+		function clearActive() {
+			content.classList.remove("active")
+			content2.classList.remove("active")
+		}
+
+		btn_year.onclick = function () {
+			clearActive()
+			content.classList.toggle("active")
+		}
+
+		btn_range.onclick = function () {
+			clearActive()
+			content2.classList.toggle("active")
+		}
+
+	</script>
+
+	<!-- chart -->
+	<script>
+		// 總申請件數
+		var lineChart_num = echarts.init(document.getElementById('lineChart_num'));
+		option = {
+			tooltip: {
+				trigger: 'axis',
+				axisPointer: { type: 'none' }
+			},
+			legend: {},
+			xAxis: [
+				{
+					type: 'category',
+					axisTick: {
+						alignWithLabel: true
+					},
+					axisLabel: {
+						formatter: '{value} 年度'
+					},
+					data: [
+						'全部',
+						'109',
+						'110',
+						'111',
+					]
+				}
+			],
+			yAxis: [
+				{
+					type: 'value',
+					position: 'left',
+					axisLabel: {
+						formatter: '{value} 件'
+					}
+				}
+			],
+			series: [
+				{
+					name: '總申請件數',
+					type: 'bar',
+					data: [1000, 300, 200, 500],
+				},
+				{
+					name: '核定件數',
+					type: 'line',
+					data: [
+						480,
+						100,
+						80,
+						300,
+					]
+				}
+			]
+		};
+
+		lineChart_num.setOption(option);
+
+
+		// 歷年核定金額
+		var lineChart_money = echarts.init(document.getElementById('lineChart_money'));
+		option = {
+			tooltip: {
+				trigger: 'axis',
+				axisPointer: { type: 'none' }
+			},
+			legend: {},
+			xAxis: [
+				{
+					type: 'category',
+					axisTick: {
+						alignWithLabel: true
+					},
+					axisLabel: {
+						formatter: '{value} 年度'
+					},
+					data: [
+						'全部',
+						'109',
+						'110',
+						'111',
+					]
+				}
+			],
+			yAxis: [
+				{
+					type: 'value',
+					position: 'left',
+					axisLabel: {
+						formatter: '{value} 元'
+					}
+				}
+			],
+			series: [
+				{
+					name: '申請總金額',
+					type: 'bar',
+					data: [300000, 100000, 80000, 120000],
+				},
+				{
+					name: '核定金額',
+					type: 'line',
+					data: [
+						150000,
+						60000,
+						40000,
+						50000,
+					]
+				}
+			]
+		};
+
+		lineChart_money.setOption(option);
+	</script>
+
+</body>
+
+</html>

@@ -1751,6 +1751,7 @@
         }
     }
     .mb-separate {
+        table-layout: fixed;
         thead {
             @include mobile-L {
                 display: none;

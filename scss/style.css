@@ -2230,6 +2230,10 @@ body .rowspan tr:nth-child(even) {
   }
 }
 
+body .mb-separate {
+  table-layout: fixed;
+}
+
 @media (max-width: 568px) {
   body .mb-separate thead {
     display: none;
@@ -2692,6 +2696,22 @@ body main .section-normal .chart-gp .pie-chart {
   body main .section-normal .chart-gp .pie-chart {
     height: 500px;
   }
+}
+
+body main .section-normal .chart-gp .line-chart {
+  margin: 20px 0;
+  height: 600px;
+}
+
+@media (max-width: 568px) {
+  body main .section-normal .chart-gp .line-chart {
+    height: 500px;
+  }
+}
+
+body main .section-normal table {
+  margin-top: 12px;
+  margin-bottom: 48px;
 }
 
 body main .section-menu {
