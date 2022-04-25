@@ -41,11 +41,19 @@ body {
         @include pad {
             padding-top: 60px;
         }
+        @include mobile-XS {
+            padding-top: 50px;
+        }
         section {
             width: 100%;
         }
         .brief-p {
             margin-bottom: $m-S;
+        }
+        .subtitle {
+            @include mobile-L {
+                margin-bottom: $m-XS;
+            }
         }
         // 一般
         .section-normal {
@@ -156,7 +164,7 @@ body {
                     margin: $m-S 0;
                     height: 600px;
                     @include mobile-L {
-                        height: 500px;
+                        height: 400px;
                     }
                 }
             }
@@ -206,7 +214,7 @@ body {
                 }
             }
         }
-        // 查詢
+        // 單一縣市查詢
         .section-map {
             display: flex;
             justify-content: space-between;
@@ -275,6 +283,31 @@ body {
                 .right {
                     width: 47%;
                     @include pad {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        // 多縣市查詢
+        .section-select {
+            .content {
+                display: flex;
+                justify-content: space-between;
+                @include mobile-L{
+                    flex-wrap: wrap;
+                }
+                .left {
+                    width: 48%;
+                    border: solid 1px $bk-20;
+                    padding: $p-S $p-M;
+                    @include mobile-L{
+                        width: 100%;
+                        margin-bottom: $m-S;
+                    }
+                }
+                .right {
+                    width: 48%;
+                    @include mobile-L{
                         width: 100%;
                     }
                 }

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>獎補助儀表板</title>
+	<!-- Font Awesome Icons -->
+	<link rel="stylesheet" href="fontawesome-free/css/all.min.css">
+	<link rel="stylesheet" href="scss/bootstrap.4.2.css">
+	<link rel="stylesheet" href="scss/style.css">
+</head>
+
+<body>
+	<!-- navbar -->
+	<header id="header"></header>
+	<main>
+		<!-- breadcrumb -->
+		<div class="breadcrumb">
+			<div class="container">
+				<ul>
+					<li><a href="index.html"><i class="fas fa-home"></i></a></li>
+					<li>></li>
+					<li><span>多縣市查詢</span></li>
+				</ul>
+			</div>
+		</div>
+		<h2 class="w-100 text-center">多縣市查詢</h2>
+		<section class="section-select container">
+			<form class="content">
+				<div class="left">
+					<div class="choice-gp">
+						<button type="button" class="btn btn-outline-primary">全選</button>
+							<button type="button" class="btn btn-outline-primary">取消全選</button>
+					</div>
+					<div class="choice-gp">
+						<label><input type="checkbox" name="label" value="臺北市" checked="checked"><span
+								class="round button">臺北市</span></label>
+						<label><input type="checkbox" name="label" value="新北市"><span
+								class="round button">新北市</span></label>
+						<label><input type="checkbox" name="label" value="基隆市"><span
+								class="round button">基隆市</span></label>
+						<label><input type="checkbox" name="label" value="桃園市"><span
+								class="round button">桃園市</span></label>
+						<label><input type="checkbox" name="label" value="新竹縣"><span
+								class="round button">新竹縣</span></label>
+						<label><input type="checkbox" name="label" value="新竹市"><span
+								class="round button">新竹市</span></label>
+						<label><input type="checkbox" name="label" value="苗栗縣"><span
+								class="round button">苗栗縣</span></label> <label class="space"></label>
+						<label><input type="checkbox" name="label" value="臺中市"><span
+								class="round button">臺中市</span></label>
+						<label><input type="checkbox" name="label" value="彰化縣"><span
+								class="round button">彰化縣</span></label>
+						<label><input type="checkbox" name="label" value="南投縣"><span
+								class="round button">南投縣</span></label> <label class="space"></label>
+						<label><input type="checkbox" name="label" value="雲林縣"><span
+								class="round button">雲林縣</span></label>
+						<label><input type="checkbox" name="label" value="嘉義縣"><span
+								class="round button">嘉義縣</span></label>
+						<label><input type="checkbox" name="label" value="嘉義市"><span
+								class="round button">嘉義市</span></label>
+						<label><input type="checkbox" name="label" value="臺南市"><span
+								class="round button">臺南市</span></label>
+						<label><input type="checkbox" name="label" value="高雄市"><span
+								class="round button">高雄市</span></label>
+						<label><input type="checkbox" name="label" value="屏東縣"><span
+								class="round button">屏東縣</span></label>
+						<label><input type="checkbox" name="label" value="澎湖縣"><span
+								class="round button">澎湖縣</span></label> <label class="space"></label>
+						<label><input type="checkbox" name="label" value="宜蘭縣"><span
+								class="round button">宜蘭縣</span></label>
+						<label><input type="checkbox" name="label" value="花蓮縣"><span
+								class="round button">花蓮縣</span></label>
+						<label><input type="checkbox" name="label" value="臺東縣"><span
+								class="round button">臺東縣</span></label> <label class="space"></label>
+						<label><input type="checkbox" name="label" value="金門縣"><span
+								class="round button">金門縣</span></label>
+						<label><input type="checkbox" name="label" value="連江縣"><span class="round button">連江縣</span>
+					</div>
+				</div>
+				<div class="right">
+					<div class="form-gp " id="content1">
+						<div class="form-gp">
+							<label for="city">年度</label>
+							<select name="type" id="city">
+								<option value="list1">110年</option>
+								<option value="list2">109年</option>
+								<option value="list3">108年</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-gp">
+						<h5>補助對象</h5>
+						<div class="item-column">
+							<input type="checkbox" name="object" value="" id="gov">
+							<label for="gov">
+								縣市政府 (含其附屬機關及鄉鎮區公所)
+						</div>
+						<div class="item-column">
+							<input type="checkbox" name="object" value="" id="group">
+							<label for="group">
+								團體 (立案團隊、協會、基金會、國立學校、縣立學校、私立學校、企業/公司、社區、非本國籍法人、其他)
+							</label>
+
+						</div>
+						<div class="item-column">
+							<input type="checkbox" name="object" value="" id="personal">
+							<label for="personal">
+								個人 (自然人、非本國籍自然人)
+						</div>
+						<div class="item-column">
+							<input type="checkbox" name="object" value="" id="centergov">
+							<label for="centergov">
+								中央機關及其所屬 (國立學校、文化部及附屬機關、中央機關及其所屬)
+							</label>
+						</div>
+					</div>
+					<div class="btn">
+						<input type="button" value="送出表單" class="submit"
+							onclick="javascript:location.href='citys-result.html'">
+					</div>
+				</div>
+			</form>
+		</section>
+	</main>
+
+	<!-- jQuery Knob -->
+	<script src="js/jquery.min.js"></script>
+	<!-- bootstrap -->
+	<script src="js/bootstrap.min.4.2.js"></script>
+	<script src="js/popper.min.js"></script>
+	<!-- chartjs -->
+	<script src="js/echarts.js"></script>
+
+	<!-- mobile-menu -->
+	<script>
+		var fas = document.querySelector(".fas.fa-bars")
+		var navbar_nav = document.querySelector(".nav.navbar-nav")
+		var nav_item = document.querySelector(".nav-item.dropdown")
+		fas.onclick = function () {
+			if (navbar_nav.classList.contains("active-ul")) {
+				navbar_nav.classList.remove("active-ul")
+			} else {
+				navbar_nav.classList.add("active-ul")
+			}
+		}
+	</script>
+
+	<!-- 引入html header&footer -->
+	<script>
+		$(function () {
+			$("#header").load('header.html');
+		});
+	</script>
+
+</body>
+
+</html>

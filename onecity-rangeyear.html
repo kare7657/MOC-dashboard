@@ -27,7 +27,7 @@
 			</div>
 		</div>
 		<h2 class="w-100 text-center">臺中市申請中 105 件</h2>
-		<span class="note text-center">總額：100,000 元</span>
+		<span class="subtitle text-center">總額：100,000 元</span>
 		<section class="section-normal container">
 			<div class="overview">
 				<p>縣市：臺中市</p>
@@ -40,7 +40,7 @@
 				<h3>總申請件數</h3>
 				<div id="lineChart_num" class="line-chart"></div>
 			</div>
-			<table class="mb-separate">
+			<table class="">
 				<thead>
 					<tr>
 						<th>年度</th>
@@ -75,7 +75,7 @@
 				<h3>歷年核定金額</h3>
 				<div id="lineChart_money" class="line-chart"></div>
 			</div>
-			<table class="mb-separate">
+			<table class="">
 				<thead>
 					<tr>
 						<th>年度</th>
@@ -106,6 +106,14 @@
 					</tr>
 				</tbody>
 			</table>
+			<div class="chart-gp">
+				<h3>核定金額≥5000萬總金額</h3>
+				<div id="lineChart_money5000" class="line-chart"></div>
+			</div>
+			<div class="chart-gp">
+				<h3>核定件數≥5000萬總件數</h3>
+				<div id="lineChart_num5000" class="line-chart"></div>
+			</div>
 		</section>
 	</main>
 
@@ -274,6 +282,95 @@
 		};
 
 		lineChart_money.setOption(option);
+
+		// 核定金額≥5000萬總金額
+		var lineChart_money5000 = echarts.init(document.getElementById('lineChart_money5000'));
+		option = {
+			tooltip: {
+				trigger: 'axis',
+				axisPointer: { type: 'none' }
+			},
+			xAxis: [
+				{
+					type: 'category',
+					axisTick: {
+						alignWithLabel: true
+					},
+					axisLabel: {
+						formatter: '{value} 年度'
+					},
+					data: [
+						'全部',
+						'109',
+						'110',
+						'111',
+					]
+				}
+			],
+			yAxis: [
+				{
+					type: 'value',
+					position: 'left',
+					axisLabel: {
+						formatter: '{value} 元'
+					}
+				}
+			],
+			series: [
+				{
+					name: '核定金額',
+					type: 'bar',
+					data: [470000, 120000, 200000, 150000],
+				},
+			]
+		};
+
+
+		lineChart_money5000.setOption(option);
+
+		// 核定金額≥5000萬總金額
+		var lineChart_num5000 = echarts.init(document.getElementById('lineChart_num5000'));
+		option = {
+			tooltip: {
+				trigger: 'axis',
+				axisPointer: { type: 'none' }
+			},
+			xAxis: [
+				{
+					type: 'category',
+					axisTick: {
+						alignWithLabel: true
+					},
+					axisLabel: {
+						formatter: '{value} 年度'
+					},
+					data: [
+						'全部',
+						'109',
+						'110',
+						'111',
+					]
+				}
+			],
+			yAxis: [
+				{
+					type: 'value',
+					position: 'left',
+					axisLabel: {
+						formatter: '{value} 件'
+					}
+				}
+			],
+			series: [
+				{
+					name: '核定件數',
+					type: 'bar',
+					data: [180, 90, 40, 50],
+				},
+			]
+		};
+
+		lineChart_num5000.setOption(option);
 	</script>
 
 </body>

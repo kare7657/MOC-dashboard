@@ -900,7 +900,7 @@
                     top: 60px;
                     left: -100vw;
                     margin: 0;
-                    padding: 0px 0 0 0;
+                    padding: 20px 0 0 0;
                     text-align: center;
                     transition-duration: 0.7s;
                     @include mobile-XS() {
@@ -1318,10 +1318,10 @@
         .notice {
             padding-left: $m-XXS;
         }
-        .tab-content{
+        .tab-content {
             display: none;
         }
-        .active{
+        .active {
             display: block;
             transition: 0.5s;
         }
@@ -1399,7 +1399,7 @@
                 }
             }
         }
-        .choice {
+        .tab-choice {
             .item {
                 display: flex;
                 justify-content: start;
@@ -1428,17 +1428,87 @@
             a {
                 font-size: $size-p;
             }
-            .item-column {
-                width: 100%;
-                display: flex;
-                align-items: start;
-                margin-bottom: $p-XXS;
-                input {
-                    margin-top: 2px;
+        }
+        .item-column {
+            width: 100%;
+            display: flex;
+            align-items: start;
+            margin-top: $p-XXS;
+            input {
+                margin-top: 2px;
+            }
+            label {
+                width: 90%;
+                margin-right: 0;
+                font-weight: normal;
+                font-size: $size-p;
+                line-height: 1.5;
+                color: $text;
+            }
+        }
+        .choice-gp {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: start;
+            @include pad() {
+                justify-content: space-between;
+            }
+            label {
+                width: 20%;
+                margin: 0 $p-XXS;
+                margin-bottom: $p-XS;
+                vertical-align: middle;
+                font-size: $size-p;
+                text-align: center;
+                @include pad {
+                    margin: 0;
+                    margin-bottom: $p-XS;
+                    width: 45%;
                 }
-                label {
-                    width: 90%;
-                    margin-right: 0;
+            }
+            input[type="radio"],
+            input[type="checkbox"] {
+                display: none;
+            }
+            input:checked + .button {
+                background: #007bff;
+                color: #fff;
+                cursor: default;
+            }
+            .btn {
+                width: initial;
+                margin: 0 $p-XXS;
+                margin-bottom: $m-S;
+                padding: 3px 8px;
+                font-weight: bold;
+                @include pad {
+                    margin: 0;
+                    margin-bottom: $p-XS;
+                    width: 45%;
+                }
+            }
+            .button {
+                display: inline-block;
+                margin: 0;
+                padding: 5px 10px;
+                background: $primary-table;
+                color: #333;
+                cursor: pointer;
+                width: 100%;
+                &:hover {
+                    background: #bbb;
+                    color: #fff;
+                }
+            }
+            .round {
+                border-radius: 2px;
+            }
+            .space {
+                width: 20%;
+                @include pad() {
+                    width: 45%;
+                    display: none;
                 }
             }
         }
@@ -1685,13 +1755,12 @@
     table {
         border-collapse: collapse;
         width: 100%;
-        table-layout: auto;
+        table-layout: fixed;
         table,
         th,
         td {
             border: 1px solid $primary-tint;
-            padding:  $p-XXS;
-            text-align: center;
+            padding: $p-XXS;
         }
         tr {
             &:nth-child(even) {
@@ -1699,8 +1768,9 @@
             }
             th {
                 background-color: rgba($color: $primary-tint, $alpha: 0.5);
-                text-align: center;
+                text-align: right;
                 @include mobile-L {
+                    text-align: right;
                     &:nth-child(1) {
                         width: 25%;
                     }
@@ -1708,9 +1778,10 @@
             }
             td {
                 color: $text;
+                text-align: right;
                 @include mobile-L {
                     flex-wrap: wrap;
-                    text-align: left;
+                    text-align: right;
                 }
             }
             .btn {
@@ -1736,16 +1807,16 @@
                 background-color: white;
             }
         }
-        th{
-            @include pad{
-                &:nth-child(1){
+        th {
+            @include pad {
+                &:nth-child(1) {
                     width: 23% !important;
                 }
-                &:nth-child(3){
+                &:nth-child(3) {
                     width: 15% !important;
                 }
             }
-            @include mobile-L(){
+            @include mobile-L() {
                 width: initial;
             }
         }
@@ -1772,6 +1843,7 @@
                 text-align: center;
             }
             td {
+                text-align: center;
                 @include mobile-L {
                     display: block;
                     flex-wrap: wrap;

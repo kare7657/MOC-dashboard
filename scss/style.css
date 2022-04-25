@@ -1180,7 +1180,7 @@ body .navbar .mobile .menu ul {
   top: 60px;
   left: -100vw;
   margin: 0;
-  padding: 0px 0 0 0;
+  padding: 20px 0 0 0;
   text-align: center;
   -webkit-transition-duration: 0.7s;
           transition-duration: 0.7s;
@@ -1722,7 +1722,7 @@ body form .form-gp .label-withButton button {
   }
 }
 
-body form .choice .item {
+body form .tab-choice .item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1737,21 +1737,21 @@ body form .choice .item {
 }
 
 @media (max-width: 568px) {
-  body form .choice .item {
+  body form .tab-choice .item {
     width: 100%;
   }
-  body form .choice .item:not(:nth-last-child(1)) {
+  body form .tab-choice .item:not(:nth-last-child(1)) {
     margin-bottom: 16px;
   }
 }
 
-body form .choice h5 {
+body form .tab-choice h5 {
   width: 100%;
   text-align: left;
   margin-bottom: 8px;
 }
 
-body form .choice label {
+body form .tab-choice label {
   width: initial;
   font-size: 1rem;
   color: #595757;
@@ -1760,11 +1760,11 @@ body form .choice label {
   margin-right: 20px;
 }
 
-body form .choice a {
+body form .tab-choice a {
   font-size: 1rem;
 }
 
-body form .choice .item-column {
+body form .item-column {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1772,16 +1772,117 @@ body form .choice .item-column {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: start;
-  margin-bottom: 8px;
+  margin-top: 8px;
 }
 
-body form .choice .item-column input {
+body form .item-column input {
   margin-top: 2px;
 }
 
-body form .choice .item-column label {
+body form .item-column label {
   width: 90%;
   margin-right: 0;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #595757;
+}
+
+body form .choice-gp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+@media (max-width: 768px) {
+  body form .choice-gp {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+body form .choice-gp label {
+  width: 20%;
+  margin: 0 8px;
+  margin-bottom: 16px;
+  vertical-align: middle;
+  font-size: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  body form .choice-gp label {
+    margin: 0;
+    margin-bottom: 16px;
+    width: 45%;
+  }
+}
+
+body form .choice-gp input[type="radio"],
+body form .choice-gp input[type="checkbox"] {
+  display: none;
+}
+
+body form .choice-gp input:checked + .button {
+  background: #007bff;
+  color: #fff;
+  cursor: default;
+}
+
+body form .choice-gp .btn {
+  width: initial;
+  margin: 0 8px;
+  margin-bottom: 20px;
+  padding: 3px 8px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  body form .choice-gp .btn {
+    margin: 0;
+    margin-bottom: 16px;
+    width: 45%;
+  }
+}
+
+body form .choice-gp .button {
+  display: inline-block;
+  margin: 0;
+  padding: 5px 10px;
+  background: #e5f1f9;
+  color: #333;
+  cursor: pointer;
+  width: 100%;
+}
+
+body form .choice-gp .button:hover {
+  background: #bbb;
+  color: #fff;
+}
+
+body form .choice-gp .round {
+  border-radius: 2px;
+}
+
+body form .choice-gp .space {
+  width: 20%;
+}
+
+@media (max-width: 768px) {
+  body form .choice-gp .space {
+    width: 45%;
+    display: none;
+  }
 }
 
 body form .datetime {
@@ -2149,7 +2250,7 @@ body .ui-datepicker td a {
 body table {
   border-collapse: collapse;
   width: 100%;
-  table-layout: auto;
+  table-layout: fixed;
 }
 
 body table table,
@@ -2157,7 +2258,6 @@ body table th,
 body table td {
   border: 1px solid #aed7f3;
   padding: 8px;
-  text-align: center;
 }
 
 body table tr:nth-child(even) {
@@ -2166,10 +2266,13 @@ body table tr:nth-child(even) {
 
 body table tr th {
   background-color: rgba(174, 215, 243, 0.5);
-  text-align: center;
+  text-align: right;
 }
 
 @media (max-width: 568px) {
+  body table tr th {
+    text-align: right;
+  }
   body table tr th:nth-child(1) {
     width: 25%;
   }
@@ -2177,13 +2280,14 @@ body table tr th {
 
 body table tr td {
   color: #595757;
+  text-align: right;
 }
 
 @media (max-width: 568px) {
   body table tr td {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    text-align: left;
+    text-align: right;
   }
 }
 
@@ -2255,6 +2359,10 @@ body .mb-separate {
 
 body .mb-separate tr th {
   background-color: rgba(174, 215, 243, 0.5);
+  text-align: center;
+}
+
+body .mb-separate tr td {
   text-align: center;
 }
 
@@ -2551,12 +2659,24 @@ body main {
   }
 }
 
+@media (max-width: 320px) {
+  body main {
+    padding-top: 50px;
+  }
+}
+
 body main section {
   width: 100%;
 }
 
 body main .brief-p {
   margin-bottom: 20px;
+}
+
+@media (max-width: 568px) {
+  body main .subtitle {
+    margin-bottom: 12px;
+  }
 }
 
 @media (max-width: 568px) {
@@ -2705,7 +2825,7 @@ body main .section-normal .chart-gp .line-chart {
 
 @media (max-width: 568px) {
   body main .section-normal .chart-gp .line-chart {
-    height: 500px;
+    height: 400px;
   }
 }
 
@@ -2907,6 +3027,45 @@ body main .section-map .content .right {
 
 @media (max-width: 768px) {
   body main .section-map .content .right {
+    width: 100%;
+  }
+}
+
+body main .section-select .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media (max-width: 568px) {
+  body main .section-select .content {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+body main .section-select .content .left {
+  width: 48%;
+  border: solid 1px #DCDDDD;
+  padding: 24px 32px;
+}
+
+@media (max-width: 568px) {
+  body main .section-select .content .left {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+body main .section-select .content .right {
+  width: 48%;
+}
+
+@media (max-width: 568px) {
+  body main .section-select .content .right {
     width: 100%;
   }
 }
