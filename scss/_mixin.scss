@@ -1474,7 +1474,6 @@
             input:checked + .button {
                 background: #007bff;
                 color: #fff;
-                cursor: default;
             }
             .btn {
                 width: initial;
@@ -1496,10 +1495,10 @@
                 color: #333;
                 cursor: pointer;
                 width: 100%;
-                &:hover {
-                    background: #bbb;
-                    color: #fff;
-                }
+                // &:hover {
+                //     background: #bbb;
+                //     color: #fff;
+                // }
             }
             .round {
                 border-radius: 2px;

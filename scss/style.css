@@ -1836,7 +1836,6 @@ body form .choice-gp input[type="checkbox"] {
 body form .choice-gp input:checked + .button {
   background: #007bff;
   color: #fff;
-  cursor: default;
 }
 
 body form .choice-gp .btn {
@@ -1863,11 +1862,6 @@ body form .choice-gp .button {
   color: #333;
   cursor: pointer;
   width: 100%;
-}
-
-body form .choice-gp .button:hover {
-  background: #bbb;
-  color: #fff;
 }
 
 body form .choice-gp .round {

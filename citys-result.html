@@ -21,61 +21,41 @@
 				<ul>
 					<li><a href="index.html"><i class="fas fa-home"></i></a></li>
 					<li>></li>
-					<li><a href="onecity.html">單一縣市查詢</a></li>
+					<li><a href="citys.html">多縣市查詢</a></li>
 					<li>></li>
-					<li><a href="onecity-result.html">查詢結果</a></li>
-					<li>></li>
-					<li><span>案件狀態</span></li>
+					<li><span>查詢結果</span></li>
 				</ul>
 			</div>
 		</div>
-		<h2 class="w-100 text-center">臺中市申請中 105 件</h2>
+		<h2 class="w-100 text-center">申請總計 300 件</h2>
 		<span class="subtitle text-center">總額：100,000 元</span>
 		<section class="section-normal container">
 			<div class="overview">
-				<p>縣市：臺中市</p>
+				<p>縣市：臺北市，新竹市，雲林縣</p>
 				<p>年度：110</p>
-				<p>補助對象：縣市，團體，個人，中央機關及其所屬</p>
+				<p>補助對象：縣市，團體</p>
 			</div>
 			<div class="chart-gp">
-				<h3>經資比例圖</h3>
-				<div id="pieChart_type" class="pie-chart"></div>
-				<h3>補助金額級距比例圖</h3>
-				<div id="pieChart_range" class="pie-chart"></div>
+				<h3>總申請件數比例圖</h3>
+				<div id="pieChart_money" class="pie-chart"></div>
+				<h3>總申請金額比例圖</h3>
+				<div id="pieChart_num" class="pie-chart"></div>
 			</div>
 			<table class="mb-separate">
 				<thead>
 					<tr>
-						<th>≥5000萬件數</th>
-						<th>&gt;1000萬&lt;5000萬件數</th>
-						<th>≤1000萬件數</th>
+						<th>申請中</th>
+						<th>審查中</th>
+						<th>已核定</th>
+						<th>不補助</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td data-title="≥5000萬件數"><a href="onecity-detail.html">詳細資料</a></td>
-						<td data-title="&gt;1000萬&lt;5000萬件數"><a href="onecity-detail.html">詳細資料</a></td>
-						<td data-title="≤1000萬件數"><a href="onecity-detail.html">詳細資料</a></td>
-					</tr>
-				</tbody>
-			</table>
-			<div class="chart-gp">
-				<h3>核銷進度比例圖</h3>
-				<div id="pieChart_range" class="pie-chart"></div>
-			</div>
-			<table class="mb-separate">
-				<thead>
-					<tr>
-						<th>已核定尚未核銷</th>
-						<th>核銷中</th>
-						<th>已核銷結案</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td data-title="已核定尚未核銷"><a href="onecity-detail.html">詳細資料</a></td>
-						<td data-title="核銷中"><a href="onecity-detail.html">詳細資料</a></td>
-						<td data-title="已核銷結案"><a href="onecity-detail.html">詳細資料</a></td>
+						<td data-title="申請中"><a href="citys-state-approved.html">詳細資料</a></td>
+						<td data-title="審查中"><a href="citys-state-approved.html">詳細資料</a></td>
+						<td data-title="已核定"><a href="citys-state-approved.html">詳細資料</a></td>
+						<td data-title="不補助"><a href="citys-state-approved.html">詳細資料</a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -137,8 +117,9 @@
 
 	<!-- chart -->
 	<script>
-		// 經資門比例
-		var pieChart_type = echarts.init(document.getElementById('pieChart_type'));
+		// 總申請金額
+		var pieChart_money = echarts.init(document.getElementById('pieChart_money'));
+
 		option = {
 			tooltip: {
 				trigger: 'item',
@@ -146,14 +127,16 @@
 			},
 			legend: {
 				data: [
-					'資本門金額',
-					'經常門金額',
-				]
+					'申請中金額',
+					'審查中金額',
+					'已核定金額',
+					'不補助金額',
+				],
 			},
 			series: [
 				{
 					type: 'pie',
-					radius: '65%',
+					radius: '60%',
 					labelLine: {
 						length: 40
 					},
@@ -181,54 +164,53 @@
 								padding: [6, 6],
 								// align: 'center',
 							},
+							c: {
+								lineHeight: 25,
+							},
 							per: {
 								color: '#fff',
 								backgroundColor: '#4C5058',
 								padding: [3, 4],
 								borderRadius: 4,
 								lineHeight: 25,
-								// align: 'center',
 							}
 						}
 					},
 					data: [
-						{ value: 60000, name: '資本門金額' },
-						{ value: 40000, name: '經常門金額' },
+						{ value: 35000, name: '申請中金額' },
+						{ value: 30000, name: '審查中金額' },
+						{ value: 30000, name: '已核定金額' },
+						{ value: 5000, name: '不補助金額' },
 					]
 				}
 			]
 		};
+		pieChart_money.setOption(option);
 
-
-		pieChart_type.setOption(option);
-
-
-		// 申請金額級距
-		var pieChart_range = echarts.init(document.getElementById('pieChart_range'));
+		// 總申請件數
+		var pieChart_num = echarts.init(document.getElementById('pieChart_num'));
 		option = {
 			tooltip: {
 				trigger: 'item',
-				formatter: '{a} <br/>{b}: {c} ({d}%)'
+				formatter: '{b}: {c} ({d}%)'
 			},
 			legend: {
 				data: [
-					'≥5000萬件數',
-					'>1000萬<5000萬件數',
-					'≤1000萬件數',
-				]
+					'申請中件數',
+					'審查中件數',
+					'已核定件數',
+					'不補助件數',
+				],
 			},
 			series: [
 				{
-					name: '申請金額：100,000 元',
 					type: 'pie',
-					radius: '65%',
+					radius: '60%',
 					labelLine: {
 						length: 40
 					},
 					label: {
-						formatter: ['{a|{a}}{abg|}',
-							'{hr|}',
-							'{b|{b}}',
+						formatter: ['{b|{b}}',
 							'{hr|}',
 							' {c} 件 {per|{d}%} ',
 						].join('\n'),
@@ -237,12 +219,6 @@
 						borderWidth: 1,
 						borderRadius: 4,
 						rich: {
-							a: {
-								color: '#6E7079',
-								lineHeight: 22,
-								padding: [6, 6],
-								// align: 'center',
-							},
 							hr: {
 								borderColor: '#8C8D8E',
 								width: '100%',
@@ -257,26 +233,28 @@
 								padding: [6, 6],
 								// align: 'center',
 							},
+							c: {
+								lineHeight: 25,
+							},
 							per: {
 								color: '#fff',
 								backgroundColor: '#4C5058',
 								padding: [3, 4],
 								borderRadius: 4,
 								lineHeight: 25,
-								// align: 'center',
 							}
 						}
 					},
 					data: [
-						{ value: 30, name: '≥5000萬件數' },
-						{ value: 40, name: '>1000萬<5000萬件數' },
-						{ value: 20, name: '≤1000萬件數' },
-					],
+						{ value: 105, name: '申請中件數' },
+						{ value: 90, name: '審查中件數' },
+						{ value: 90, name: '已核定件數' },
+						{ value: 15, name: '不補助件數' },
+					]
 				}
 			]
 		};
-
-		pieChart_range.setOption(option);
+		pieChart_num.setOption(option);
 
 	</script>
 
