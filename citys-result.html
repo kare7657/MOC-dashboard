@@ -21,14 +21,13 @@
 				<ul>
 					<li><a href="index.html"><i class="fas fa-home"></i></a></li>
 					<li>></li>
-					<li><a href="citys.html">多縣市查詢</a></li>
+					<li><a href="onecity.html">多縣市查詢</a></li>
 					<li>></li>
 					<li><span>查詢結果</span></li>
 				</ul>
 			</div>
 		</div>
-		<h2 class="w-100 text-center">申請總計 300 件</h2>
-		<span class="subtitle text-center">總額：100,000 元</span>
+		<h2 class="w-100 text-center">跨縣市查詢結果</h2>
 		<section class="section-normal container">
 			<div class="overview">
 				<p>縣市：臺北市，新竹市，雲林縣</p>
@@ -36,29 +35,83 @@
 				<p>補助對象：縣市，團體</p>
 			</div>
 			<div class="chart-gp">
-				<h3>總申請件數比例圖</h3>
-				<div id="pieChart_money" class="pie-chart"></div>
-				<h3>總申請金額比例圖</h3>
-				<div id="pieChart_num" class="pie-chart"></div>
+				<h3>總申請件數</h3>
+				<div id="lineChart_num" class="line-chart"></div>
 			</div>
-			<table class="mb-separate">
+			<table>
 				<thead>
 					<tr>
-						<th>申請中</th>
-						<th>審查中</th>
-						<th>已核定</th>
-						<th>不補助</th>
+						<th>縣市</th>
+						<th>總申請件數</th>
+						<th>核定件數</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td data-title="申請中"><a href="citys-state-approved.html">詳細資料</a></td>
-						<td data-title="審查中"><a href="citys-state-approved.html">詳細資料</a></td>
-						<td data-title="已核定"><a href="citys-state-approved.html">詳細資料</a></td>
-						<td data-title="不補助"><a href="citys-state-approved.html">詳細資料</a></td>
+						<td data-title="縣市"><a href="citys-totalNum-all.html">全部</a></td>
+						<td data-title="總申請件數">1000</td>
+						<td data-title="核定件數">480</td>
+					</tr>
+					<tr>
+						<td data-title="縣市"><a href="">臺北市</a></td>
+						<td data-title="總申請件數">300</td>
+						<td data-title="核定件數">100</td>
+					</tr>
+					<tr>
+						<td data-title="縣市"><a href="">新竹市</a></td>
+						<td data-title="總申請件數">200</td>
+						<td data-title="核定件數">80</td>
+					</tr>
+					<tr>
+						<td data-title="縣市"><a href="">雲林縣</a></td>
+						<td data-title="總申請件數">500</td>
+						<td data-title="核定件數">300</td>
 					</tr>
 				</tbody>
 			</table>
+			<div class="chart-gp">
+				<h3>歷年核定金額</h3>
+				<div id="lineChart_money" class="line-chart"></div>
+			</div>
+			<table>
+				<thead>
+					<tr>
+						<th>縣市</th>
+						<th>申請總金額</th>
+						<th>核定金額</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td data-title="縣市">全部</td>
+						<td data-title="申請總金額">300000</td>
+						<td data-title="核定金額">150000</td>
+					</tr>
+					<tr>
+						<td data-title="縣市">臺北市</td>
+						<td data-title="申請總金額">100000</td>
+						<td data-title="核定金額">60000</td>
+					</tr>
+					<tr>
+						<td data-title="縣市">新竹市</td>
+						<td data-title="申請總金額">80000</td>
+						<td data-title="核定金額">40000</td>
+					</tr>
+					<tr>
+						<td data-title="縣市">雲林縣</td>
+						<td data-title="申請總金額">120000</td>
+						<td data-title="核定金額">50000</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="chart-gp">
+				<h3>核定金額≥5000萬總金額</h3>
+				<div id="lineChart_money5000" class="line-chart"></div>
+			</div>
+			<div class="chart-gp">
+				<h3>核定件數≥5000萬總件數</h3>
+				<div id="lineChart_num5000" class="line-chart"></div>
+			</div>
 		</section>
 	</main>
 
@@ -117,145 +170,192 @@
 
 	<!-- chart -->
 	<script>
-		// 總申請金額
-		var pieChart_money = echarts.init(document.getElementById('pieChart_money'));
-
-		option = {
-			tooltip: {
-				trigger: 'item',
-				formatter: '{b}: {c} ({d}%)'
-			},
-			legend: {
-				data: [
-					'申請中金額',
-					'審查中金額',
-					'已核定金額',
-					'不補助金額',
-				],
-			},
-			series: [
-				{
-					type: 'pie',
-					radius: '60%',
-					labelLine: {
-						length: 40
-					},
-					label: {
-						formatter: ['{b|{b}}',
-							'{hr|}',
-							' {c} 元 {per|{d}%} ',
-						].join('\n'),
-						backgroundColor: '#F6F8FC',
-						borderColor: '#8C8D8E',
-						borderWidth: 1,
-						borderRadius: 4,
-						rich: {
-							hr: {
-								borderColor: '#8C8D8E',
-								width: '100%',
-								borderWidth: 1,
-								height: 0
-							},
-							b: {
-								color: '#4C5058',
-								fontSize: 14,
-								fontWeight: 'bold',
-								lineHeight: 33,
-								padding: [6, 6],
-								// align: 'center',
-							},
-							c: {
-								lineHeight: 25,
-							},
-							per: {
-								color: '#fff',
-								backgroundColor: '#4C5058',
-								padding: [3, 4],
-								borderRadius: 4,
-								lineHeight: 25,
-							}
-						}
-					},
-					data: [
-						{ value: 35000, name: '申請中金額' },
-						{ value: 30000, name: '審查中金額' },
-						{ value: 30000, name: '已核定金額' },
-						{ value: 5000, name: '不補助金額' },
-					]
-				}
-			]
-		};
-		pieChart_money.setOption(option);
-
 		// 總申請件數
-		var pieChart_num = echarts.init(document.getElementById('pieChart_num'));
+		var lineChart_num = echarts.init(document.getElementById('lineChart_num'));
 		option = {
 			tooltip: {
-				trigger: 'item',
-				formatter: '{b}: {c} ({d}%)'
+				trigger: 'axis',
+				axisPointer: { type: 'none' }
 			},
-			legend: {
-				data: [
-					'申請中件數',
-					'審查中件數',
-					'已核定件數',
-					'不補助件數',
-				],
-			},
-			series: [
+			legend: {},
+			xAxis: [
 				{
-					type: 'pie',
-					radius: '60%',
-					labelLine: {
-						length: 40
-					},
-					label: {
-						formatter: ['{b|{b}}',
-							'{hr|}',
-							' {c} 件 {per|{d}%} ',
-						].join('\n'),
-						backgroundColor: '#F6F8FC',
-						borderColor: '#8C8D8E',
-						borderWidth: 1,
-						borderRadius: 4,
-						rich: {
-							hr: {
-								borderColor: '#8C8D8E',
-								width: '100%',
-								borderWidth: 1,
-								height: 0
-							},
-							b: {
-								color: '#4C5058',
-								fontSize: 14,
-								fontWeight: 'bold',
-								lineHeight: 33,
-								padding: [6, 6],
-								// align: 'center',
-							},
-							c: {
-								lineHeight: 25,
-							},
-							per: {
-								color: '#fff',
-								backgroundColor: '#4C5058',
-								padding: [3, 4],
-								borderRadius: 4,
-								lineHeight: 25,
-							}
-						}
+					type: 'category',
+					axisTick: {
+						alignWithLabel: true
 					},
 					data: [
-						{ value: 105, name: '申請中件數' },
-						{ value: 90, name: '審查中件數' },
-						{ value: 90, name: '已核定件數' },
-						{ value: 15, name: '不補助件數' },
+						'全部',
+						'臺北市',
+						'新竹市',
+						'雲林縣',
+					]
+				}
+			],
+			yAxis: [
+				{
+					type: 'value',
+					position: 'left',
+					axisLabel: {
+						formatter: '{value} 件'
+					}
+				}
+			],
+			series: [
+				{
+					name: '總申請件數',
+					type: 'bar',
+					data: [1000, 300, 200, 500],
+				},
+				{
+					name: '核定件數',
+					type: 'line',
+					data: [
+						480,
+						100,
+						80,
+						300,
 					]
 				}
 			]
 		};
-		pieChart_num.setOption(option);
 
+		lineChart_num.setOption(option);
+
+
+		// 歷年核定金額
+		var lineChart_money = echarts.init(document.getElementById('lineChart_money'));
+		option = {
+			tooltip: {
+				trigger: 'axis',
+				axisPointer: { type: 'none' }
+			},
+			legend: {},
+			xAxis: [
+				{
+					type: 'category',
+					axisTick: {
+						alignWithLabel: true
+					},
+					data: [
+						'全部',
+						'臺北市',
+						'新竹市',
+						'雲林縣',
+					]
+				}
+			],
+			yAxis: [
+				{
+					type: 'value',
+					position: 'left',
+					axisLabel: {
+						formatter: '{value} 元'
+					}
+				}
+			],
+			series: [
+				{
+					name: '申請總金額',
+					type: 'bar',
+					data: [300000, 100000, 80000, 120000],
+				},
+				{
+					name: '核定金額',
+					type: 'line',
+					data: [
+						150000,
+						60000,
+						40000,
+						50000,
+					]
+				}
+			]
+		};
+
+		lineChart_money.setOption(option);
+
+		// 核定金額≥5000萬總金額
+		var lineChart_money5000 = echarts.init(document.getElementById('lineChart_money5000'));
+		option = {
+			tooltip: {
+				trigger: 'axis',
+				axisPointer: { type: 'none' }
+			},
+			xAxis: [
+				{
+					type: 'category',
+					axisTick: {
+						alignWithLabel: true
+					},
+					data: [
+						'全部',
+						'臺北市',
+						'新竹市',
+						'雲林縣',
+					]
+				}
+			],
+			yAxis: [
+				{
+					type: 'value',
+					position: 'left',
+					axisLabel: {
+						formatter: '{value} 元'
+					}
+				}
+			],
+			series: [
+				{
+					name: '核定金額',
+					type: 'bar',
+					data: [470000, 120000, 200000, 150000],
+				},
+			]
+		};
+
+		lineChart_money5000.setOption(option);
+
+		// 核定金額≥5000萬總金額
+		var lineChart_num5000 = echarts.init(document.getElementById('lineChart_num5000'));
+		option = {
+			tooltip: {
+				trigger: 'axis',
+				axisPointer: { type: 'none' }
+			},
+			xAxis: [
+				{
+					type: 'category',
+					axisTick: {
+						alignWithLabel: true
+					},
+					data: [
+						'全部',
+						'臺北市',
+						'新竹市',
+						'雲林縣',
+					]
+				}
+			],
+			yAxis: [
+				{
+					type: 'value',
+					position: 'left',
+					axisLabel: {
+						formatter: '{value} 件'
+					}
+				}
+			],
+			series: [
+				{
+					name: '核定件數',
+					type: 'bar',
+					data: [180, 90, 40, 50],
+				},
+			]
+		};
+
+		lineChart_num5000.setOption(option);
 	</script>
 
 </body>
