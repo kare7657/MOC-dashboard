@@ -30,8 +30,8 @@
 			<form class="content">
 				<div class="left">
 					<div class="choice-gp">
-						<button type="button" class="btn btn-outline-primary">全選</button>
-							<button type="button" class="btn btn-outline-primary">取消全選</button>
+						<button type="button" class="btn btn-outline-primary" id="checkAll">全選</button>
+						<button type="button" class="btn btn-outline-primary" id="checkNo">取消全選</button>
 					</div>
 					<div class="choice-gp">
 						<label><input type="checkbox" name="label" value="臺北市"><span
@@ -152,6 +152,34 @@
 		$(function () {
 			$("#header").load('header.html');
 		});
+	</script>
+
+	<!-- 全選/取消全選 -->
+	<script>
+		// 處理全選
+		document.getElementById('checkAll').onclick = function () {
+			// 獲取所有的複選框
+			var checkElements = document.getElementsByName('label');
+			for (var i = 0; i < checkElements.length; i++) {
+				var checkElement = checkElements[i];
+				// 方法一
+				// checkElement.setAttribute('checked',' checked');
+				// 方法二
+				checkElement.checked = "checked";
+			}
+		}
+		// 處理全不選
+		document.getElementById('checkNo').onclick = function () {
+			// 獲取所有的複選框
+			var checkElements = document.getElementsByName('label');
+			for (var i = 0; i < checkElements.length; i++) {
+				var checkElement = checkElements[i];
+				// 方法一火狐不支援
+				// checkElement.setAttribute('checked',null);
+				// 方法二 火狐和ie都支援
+				checkElement.checked = null;
+			}
+		}
 	</script>
 
 </body>
