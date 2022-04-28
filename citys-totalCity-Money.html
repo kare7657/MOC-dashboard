@@ -23,12 +23,14 @@
 					<li>></li>
 					<li><a href="citys.html">多縣市查詢</a></li>
 					<li>></li>
-					<li><span>查詢結果</span></li>
+					<li><a href="citys-result.html">查詢結果</a></li>
+					<li>></li>
+					<li><span>各縣市金額</span></li>
 				</ul>
 			</div>
 		</div>
-		<h2 class="w-100 text-center">申請總計 300 件</h2>
-		<span class="subtitle text-center">總額：100,000 元</span>
+		<h2 class="w-100 text-center">各縣市金額</h2>
+		<span class="subtitle text-center">總金額：300,000 元</span>
 		<section class="section-normal container">
 			<div class="overview">
 				<p>縣市：臺北市，新竹市，雲林縣</p>
@@ -36,29 +38,14 @@
 				<p>補助對象：縣市，團體</p>
 			</div>
 			<div class="chart-gp">
-				<h3>總申請件數比例圖</h3>
-				<div id="pieChart_money" class="pie-chart"></div>
-				<h3>總申請金額比例圖</h3>
-				<div id="pieChart_num" class="pie-chart"></div>
+				<h3>申請金額比例圖</h3>
+				<div id="pieChart_applyMoney" class="pie-chart"></div>
 			</div>
-			<table class="mb-separate">
-				<thead>
-					<tr>
-						<th>申請中</th>
-						<th>審查中</th>
-						<th>已核定</th>
-						<th>不補助</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td data-title="申請中"><a href="citys-state-approved.html">詳細資料</a></td>
-						<td data-title="審查中"><a href="citys-state-approved.html">詳細資料</a></td>
-						<td data-title="已核定"><a href="citys-state-approved.html">詳細資料</a></td>
-						<td data-title="不補助"><a href="citys-state-approved.html">詳細資料</a></td>
-					</tr>
-				</tbody>
-			</table>
+			<div class="chart-gp">
+				<h3>核定金額比例圖</h3>
+				<div id="pieChart_approvedNum" class="pie-chart"></div>
+			</div>
+
 		</section>
 	</main>
 
@@ -118,7 +105,7 @@
 	<!-- chart -->
 	<script>
 		// 總申請金額
-		var pieChart_money = echarts.init(document.getElementById('pieChart_money'));
+		var pieChart_applyMoney = echarts.init(document.getElementById('pieChart_applyMoney'));
 
 		option = {
 			tooltip: {
@@ -127,10 +114,9 @@
 			},
 			legend: {
 				data: [
-					'申請中金額',
-					'審查中金額',
-					'已核定金額',
-					'不補助金額',
+					'臺北市',
+					'新竹市',
+					'雲林縣',
 				],
 			},
 			series: [
@@ -177,18 +163,19 @@
 						}
 					},
 					data: [
-						{ value: 35000, name: '申請中金額' },
-						{ value: 30000, name: '審查中金額' },
-						{ value: 30000, name: '已核定金額' },
-						{ value: 5000, name: '不補助金額' },
+						{ value: 100000, name: '臺北市' },
+						{ value: 80000, name: '新竹市' },
+						{ value: 120000, name: '雲林縣' },
 					]
 				}
 			]
 		};
-		pieChart_money.setOption(option);
 
-		// 總申請件數
-		var pieChart_num = echarts.init(document.getElementById('pieChart_num'));
+
+		pieChart_applyMoney.setOption(option);
+
+		// 核定金額
+		var pieChart_approvedNum = echarts.init(document.getElementById('pieChart_approvedNum'));
 		option = {
 			tooltip: {
 				trigger: 'item',
@@ -196,10 +183,9 @@
 			},
 			legend: {
 				data: [
-					'申請中件數',
-					'審查中件數',
-					'已核定件數',
-					'不補助件數',
+					'臺北市',
+					'新竹市',
+					'雲林縣',
 				],
 			},
 			series: [
@@ -212,7 +198,7 @@
 					label: {
 						formatter: ['{b|{b}}',
 							'{hr|}',
-							' {c} 件 {per|{d}%} ',
+							' {c} 元 {per|{d}%} ',
 						].join('\n'),
 						backgroundColor: '#F6F8FC',
 						borderColor: '#8C8D8E',
@@ -246,15 +232,15 @@
 						}
 					},
 					data: [
-						{ value: 105, name: '申請中件數' },
-						{ value: 90, name: '審查中件數' },
-						{ value: 90, name: '已核定件數' },
-						{ value: 15, name: '不補助件數' },
+						{ value: 60000, name: '臺北市' },
+						{ value: 40000, name: '新竹市' },
+						{ value: 50000, name: '雲林縣' },
 					]
 				}
 			]
 		};
-		pieChart_num.setOption(option);
+
+		pieChart_approvedNum.setOption(option);
 
 	</script>
 

@@ -49,8 +49,11 @@
             width: 100%;
         }
         @include mobile-L() {
+            padding: 0 $p-XS;
             padding-top: $p-XS;
         }
+        // @include mobile-L {
+        // }
     }
     h1 {
         font-size: $size-h1;

@@ -21,13 +21,13 @@
 				<ul>
 					<li><a href="index.html"><i class="fas fa-home"></i></a></li>
 					<li>></li>
-					<li><a href="onecity.html">多縣市查詢</a></li>
+					<li><a href="citys.html">多縣市查詢</a></li>
 					<li>></li>
 					<li><span>查詢結果</span></li>
 				</ul>
 			</div>
 		</div>
-		<h2 class="w-100 text-center">跨縣市查詢結果</h2>
+		<h2 class="w-100 text-center">查詢結果</h2>
 		<section class="section-normal container">
 			<div class="overview">
 				<p>縣市：臺北市，新竹市，雲林縣</p>
@@ -36,71 +36,73 @@
 			</div>
 			<div class="chart-gp">
 				<h3>總申請件數</h3>
+				<button type="button" onclick="javascript:location.href='citys-totalCity-Num.html'">詳細資料</button>
 				<div id="lineChart_num" class="line-chart"></div>
 			</div>
 			<table>
 				<thead>
 					<tr>
 						<th>縣市</th>
-						<th>總申請件數</th>
-						<th>核定件數</th>
+						<th>總申請件數 (件)</th>
+						<th>核定件數 (件)</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td data-title="縣市"><a href="citys-totalNum-all.html">全部</a></td>
-						<td data-title="總申請件數">1000</td>
-						<td data-title="核定件數">480</td>
+						<td data-title="縣市">全部</td>
+						<td data-title="總申請件數 (件)">1000</td>
+						<td data-title="核定件數 (件)">480</td>
 					</tr>
 					<tr>
-						<td data-title="縣市"><a href="">臺北市</a></td>
-						<td data-title="總申請件數">300</td>
-						<td data-title="核定件數">100</td>
+						<td data-title="縣市">臺北市</td>
+						<td data-title="總申請件數 (件)">300</td>
+						<td data-title="核定件數 (件)">100</td>
 					</tr>
 					<tr>
-						<td data-title="縣市"><a href="">新竹市</a></td>
-						<td data-title="總申請件數">200</td>
-						<td data-title="核定件數">80</td>
+						<td data-title="縣市">新竹市</td>
+						<td data-title="總申請件數 (件)">200</td>
+						<td data-title="核定件數 (件)">80</td>
 					</tr>
 					<tr>
-						<td data-title="縣市"><a href="">雲林縣</a></td>
-						<td data-title="總申請件數">500</td>
-						<td data-title="核定件數">300</td>
+						<td data-title="縣市">雲林縣</td>
+						<td data-title="總申請件數 (件)">500</td>
+						<td data-title="核定件數 (件)">300</td>
 					</tr>
 				</tbody>
 			</table>
 			<div class="chart-gp">
 				<h3>歷年核定金額</h3>
+				<button type="button" onclick="javascript:location.href='citys-totalCity-Money.html'">詳細資料</button>
 				<div id="lineChart_money" class="line-chart"></div>
 			</div>
 			<table>
 				<thead>
 					<tr>
 						<th>縣市</th>
-						<th>申請總金額</th>
-						<th>核定金額</th>
+						<th>申請總金額 (元)</th>
+						<th>核定金額 (元)</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td data-title="縣市">全部</td>
-						<td data-title="申請總金額">300000</td>
-						<td data-title="核定金額">150000</td>
+						<td data-title="申請總金額 (元)">300000</td>
+						<td data-title="核定金額 (元)">150000</td>
 					</tr>
 					<tr>
 						<td data-title="縣市">臺北市</td>
-						<td data-title="申請總金額">100000</td>
-						<td data-title="核定金額">60000</td>
+						<td data-title="申請總金額 (元)">100000</td>
+						<td data-title="核定金額 (元)">60000</td>
 					</tr>
 					<tr>
 						<td data-title="縣市">新竹市</td>
-						<td data-title="申請總金額">80000</td>
-						<td data-title="核定金額">40000</td>
+						<td data-title="申請總金額 (元)">80000</td>
+						<td data-title="核定金額 (元)">40000</td>
 					</tr>
 					<tr>
 						<td data-title="縣市">雲林縣</td>
-						<td data-title="申請總金額">120000</td>
-						<td data-title="核定金額">50000</td>
+						<td data-title="申請總金額 (元)">120000</td>
+						<td data-title="核定金額 (元)">50000</td>
 					</tr>
 				</tbody>
 			</table>
@@ -112,6 +114,37 @@
 				<h3>核定件數≥5000萬總件數</h3>
 				<div id="lineChart_num5000" class="line-chart"></div>
 			</div>
+			<table>
+				<thead>
+					<tr>
+						<th>縣市</th>
+						<th>核定件數≥5000萬總金額 (元)</th>
+						<th>核定件數≥5000萬總件數 (件)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td data-title="縣市">全部</td>
+						<td data-title="核定件數≥5000萬總金額 (元)">470000</td>
+						<td data-title="核定件數≥5000萬總件數 (件)">180</td>
+					</tr>
+					<tr>
+						<td data-title="縣市">臺北市</td>
+						<td data-title="核定件數≥5000萬總金額 (元)">120000</td>
+						<td data-title="核定件數≥5000萬總件數 (件)">90</td>
+					</tr>
+					<tr>
+						<td data-title="縣市">新竹市</td>
+						<td data-title="核定件數≥5000萬總金額 (元)">200000</td>
+						<td data-title="核定件數≥5000萬總件數 (件)">40</td>
+					</tr>
+					<tr>
+						<td data-title="縣市">雲林縣</td>
+						<td data-title="核定件數≥5000萬總金額 (元)">150000</td>
+						<td data-title="核定件數≥5000萬總件數 (件)">50</td>
+					</tr>
+				</tbody>
+			</table>
 		</section>
 	</main>
 
@@ -357,6 +390,7 @@
 
 		lineChart_num5000.setOption(option);
 	</script>
+
 
 </body>
 

@@ -25,11 +25,12 @@
 					<li>></li>
 					<li><a href="citys-result.html">查詢結果</a></li>
 					<li>></li>
-					<li><span>各縣市總申請件數</span></li>
+					<li><span>各縣市件數</span></li>
 				</ul>
 			</div>
 		</div>
-		<h2 class="w-100 text-center">各縣市總申請件數</h2>
+		<h2 class="w-100 text-center">各縣市件數</h2>
+		<span class="subtitle text-center">總件數：1,000 件</span>
 		<section class="section-normal container">
 			<div class="overview">
 				<p>縣市：臺北市，新竹市，雲林縣</p>
@@ -38,48 +39,14 @@
 			</div>
 			<div class="chart-gp">
 				<h3>總申請件數比例圖</h3>
-				<div id="pieChart_num" class="pie-chart"></div>
+				<button type="button" onclick="javascript:location.href='citys-totalApply.html'" >詳細資料</button>
+				<div id="pieChart_applyNum" class="pie-chart"></div>
 			</div>
-			<table class="mb-separate">
-				<thead>
-					<tr>
-						<th>全部</th>
-						<th>臺北市</th>
-						<th>新竹市</th>
-						<th>雲林縣</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td data-title="全部"><a href="citys-state.html">詳細資料</a></td>
-						<td data-title="臺北市"><a href="citys-state.html">詳細資料</a></td>
-						<td data-title="新竹市"><a href="citys-state.html">詳細資料</a></td>
-						<td data-title="雲林縣"><a href="citys-state.html">詳細資料</a></td>
-					</tr>
-				</tbody>
-			</table>
 			<div class="chart-gp">
 				<h3>核定件數比例圖</h3>
-				<div id="pieChart_money" class="pie-chart"></div>
+				<div id="pieChart_approvedNum" class="pie-chart"></div>
 			</div>
-			<table class="mb-separate">
-				<thead>
-					<tr>
-						<th>全部</th>
-						<th>臺北市</th>
-						<th>新竹市</th>
-						<th>雲林縣</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td data-title="全部"><a href="citys-state-approved.html">詳細資料</a></td>
-						<td data-title="臺北市"><a href="citys-state-approved.html">詳細資料</a></td>
-						<td data-title="新竹市"><a href="citys-state-approved.html">詳細資料</a></td>
-						<td data-title="雲林縣"><a href="citys-state-approved.html">詳細資料</a></td>
-					</tr>
-				</tbody>
-			</table>
+
 		</section>
 	</main>
 
@@ -138,78 +105,9 @@
 
 	<!-- chart -->
 	<script>
-		// 總申請金額
-		var pieChart_money = echarts.init(document.getElementById('pieChart_money'));
-
-		option = {
-			tooltip: {
-				trigger: 'item',
-				formatter: '{b}: {c} ({d}%)'
-			},
-			legend: {
-				data: [
-					'申請中金額',
-					'審查中金額',
-					'已核定金額',
-					'不補助金額',
-				],
-			},
-			series: [
-				{
-					type: 'pie',
-					radius: '60%',
-					labelLine: {
-						length: 40
-					},
-					label: {
-						formatter: ['{b|{b}}',
-							'{hr|}',
-							' {c} 元 {per|{d}%} ',
-						].join('\n'),
-						backgroundColor: '#F6F8FC',
-						borderColor: '#8C8D8E',
-						borderWidth: 1,
-						borderRadius: 4,
-						rich: {
-							hr: {
-								borderColor: '#8C8D8E',
-								width: '100%',
-								borderWidth: 1,
-								height: 0
-							},
-							b: {
-								color: '#4C5058',
-								fontSize: 14,
-								fontWeight: 'bold',
-								lineHeight: 33,
-								padding: [6, 6],
-								// align: 'center',
-							},
-							c: {
-								lineHeight: 25,
-							},
-							per: {
-								color: '#fff',
-								backgroundColor: '#4C5058',
-								padding: [3, 4],
-								borderRadius: 4,
-								lineHeight: 25,
-							}
-						}
-					},
-					data: [
-						{ value: 35000, name: '申請中金額' },
-						{ value: 30000, name: '審查中金額' },
-						{ value: 30000, name: '已核定金額' },
-						{ value: 5000, name: '不補助金額' },
-					]
-				}
-			]
-		};
-		pieChart_money.setOption(option);
-
 		// 總申請件數
-		var pieChart_num = echarts.init(document.getElementById('pieChart_num'));
+		var pieChart_applyNum = echarts.init(document.getElementById('pieChart_applyNum'));
+
 		option = {
 			tooltip: {
 				trigger: 'item',
@@ -217,10 +115,9 @@
 			},
 			legend: {
 				data: [
-					'申請中件數',
-					'審查中件數',
-					'已核定件數',
-					'不補助件數',
+					'臺北市',
+					'新竹市',
+					'雲林縣',
 				],
 			},
 			series: [
@@ -267,15 +164,83 @@
 						}
 					},
 					data: [
-						{ value: 105, name: '申請中件數' },
-						{ value: 90, name: '審查中件數' },
-						{ value: 90, name: '已核定件數' },
-						{ value: 15, name: '不補助件數' },
+						{ value: 300, name: '臺北市' },
+						{ value: 200, name: '新竹市' },
+						{ value: 500, name: '雲林縣' },
 					]
 				}
 			]
 		};
-		pieChart_num.setOption(option);
+
+		pieChart_applyNum.setOption(option);
+
+		// 核定件數
+		var pieChart_approvedNum = echarts.init(document.getElementById('pieChart_approvedNum'));
+		option = {
+			tooltip: {
+				trigger: 'item',
+				formatter: '{b}: {c} ({d}%)'
+			},
+			legend: {
+				data: [
+					'臺北市',
+					'新竹市',
+					'雲林縣',
+				],
+			},
+			series: [
+				{
+					type: 'pie',
+					radius: '60%',
+					labelLine: {
+						length: 40
+					},
+					label: {
+						formatter: ['{b|{b}}',
+							'{hr|}',
+							' {c} 件 {per|{d}%} ',
+						].join('\n'),
+						backgroundColor: '#F6F8FC',
+						borderColor: '#8C8D8E',
+						borderWidth: 1,
+						borderRadius: 4,
+						rich: {
+							hr: {
+								borderColor: '#8C8D8E',
+								width: '100%',
+								borderWidth: 1,
+								height: 0
+							},
+							b: {
+								color: '#4C5058',
+								fontSize: 14,
+								fontWeight: 'bold',
+								lineHeight: 33,
+								padding: [6, 6],
+								// align: 'center',
+							},
+							c: {
+								lineHeight: 25,
+							},
+							per: {
+								color: '#fff',
+								backgroundColor: '#4C5058',
+								padding: [3, 4],
+								borderRadius: 4,
+								lineHeight: 25,
+							}
+						}
+					},
+					data: [
+						{ value: 100, name: '臺北市' },
+						{ value: 80, name: '新竹市' },
+						{ value: 300, name: '雲林縣' },
+					]
+				}
+			]
+		};
+
+		pieChart_approvedNum.setOption(option);
 
 	</script>
 

@@ -25,6 +25,7 @@
 
 @media (max-width: 568px) {
   * .container {
+    padding: 0 16px;
     padding-top: 16px;
   }
 }
@@ -2673,12 +2674,6 @@ body main .brief-p {
   }
 }
 
-@media (max-width: 568px) {
-  body main .section-normal {
-    padding: 0 16px;
-  }
-}
-
 body main .section-normal ul {
   padding: 0;
 }
@@ -2799,6 +2794,29 @@ body main .section-normal .icon-gp a img {
 
 body main .section-normal .chart-gp {
   height: 100%;
+}
+
+body main .section-normal .chart-gp h3 {
+  display: inline-block;
+}
+
+@media (max-width: 568px) {
+  body main .section-normal .chart-gp h3 {
+    width: 100%;
+  }
+}
+
+body main .section-normal .chart-gp button {
+  margin-left: 12px;
+  background-color: #007bff;
+}
+
+@media (max-width: 568px) {
+  body main .section-normal .chart-gp button {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 12px;
+  }
 }
 
 body main .section-normal .chart-gp .pie-chart {

@@ -57,9 +57,9 @@ body {
         }
         // 一般
         .section-normal {
-            @include mobile-L {
-                padding: 0 $p-XS;
-            }
+            // @include mobile-L {
+            //     padding: 0 $p-XS;
+            // }
             ul:not(.nav, .breadcrumb) {
                 padding: 0;
                 li:not(.nav-item) {
@@ -153,6 +153,21 @@ body {
             // chart
             .chart-gp {
                 height: 100%;
+                h3{
+                    display: inline-block;
+                    @include mobile-L{
+                        width: 100%;
+                    }
+                }
+                button{
+                    margin-left: $m-XS;
+                    background-color: #007bff;
+                    @include mobile-L{
+                        width: 100%;
+                        margin-left: 0;
+                        margin-top: $m-XS;
+                    }
+                }
                 .pie-chart {
                     margin: $m-S 0;
                     height: 600px;
@@ -183,6 +198,7 @@ body {
                 height: initial;
                 flex-wrap: wrap;
                 margin-top: $m-S;
+                // padding: 0 $p-XS;
             }
             .block {
                 display: flex;
@@ -222,6 +238,9 @@ body {
             @include pad {
                 flex-wrap: wrap;
             }
+            // @include mobile-L {
+            //     padding: 0 $p-XS;
+            // }
             .map {
                 width: 30%;
                 @include web-S {
@@ -290,6 +309,9 @@ body {
         }
         // 多縣市查詢
         .section-select {
+            // @include mobile-L {
+            //     padding: 0 $p-XS;
+            // }
             .content {
                 display: flex;
                 justify-content: space-between;
