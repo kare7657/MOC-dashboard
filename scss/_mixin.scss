@@ -722,14 +722,16 @@
                         ul {
                             margin: 0;
                             padding: 0;
-                            background-color: $primary-dark;
-                            border-radius: 4px;
                             font-size: $size-h5;
                             li {
-                                display: inline;
+                                display: inline-block;
                                 color: white;
+                                margin-left: $p-XXS;
+                                background-color: $primary-dark;
+                                border-radius: 4px;
                                 a {
                                     padding: 0 $p-XS;
+                                    display: inline-block;
                                     line-height: 37px;
                                     margin: 0;
                                     color: white;
