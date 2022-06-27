@@ -4,12 +4,14 @@
   box-sizing: border-box !important;
 }
 * .container {
-  width: 1110px;
+  max-width: 1220px;
   margin: auto;
   padding: 24px 0;
 }
 @media (max-width: 1024px) {
   * .container {
+    max-width: unset;
+    padding: 0 24px;
     padding-top: 16px;
   }
 }
@@ -20,7 +22,6 @@
 }
 @media (max-width: 568px) {
   * .container {
-    padding: 0 16px;
     padding-top: 16px;
   }
 }
@@ -86,6 +87,15 @@
 }
 * .notice {
   color: #da382d;
+}
+* .unit {
+  color: #818181;
+  text-align: right;
+}
+@media (max-width: 568px) {
+  * .unit {
+    margin-top: 8px;
+  }
 }
 * .fa,
 * .fas,
@@ -155,7 +165,6 @@
   /*透明*/
 }
 * input:not(.custom-control-input)[type=submit], * input:not(.custom-control-input)[type=reset] {
-  width: 100%;
   height: 40px;
   background-color: #0b3259;
   color: white;
@@ -654,6 +663,7 @@ body {
   /* 點 */
   /* 橫線 */
   /* calendar - week */
+  /* loading */
 }
 @media (max-width: 320px) {
   body {
@@ -691,7 +701,7 @@ body .navbar .pc {
 }
 body .navbar .pc .top {
   width: 100%;
-  max-width: 1110px;
+  max-width: 1220px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -702,6 +712,7 @@ body .navbar .pc .top {
   body .navbar .pc .top {
     margin-left: 20px;
     padding-right: 8px;
+    max-width: unset;
   }
 }
 body .navbar .pc .top .left .logo {
@@ -764,7 +775,7 @@ body .navbar .pc .bottom {
   color: white;
 }
 body .navbar .pc .bottom .nav-gp {
-  width: 1110px;
+  width: 1220px;
   display: flex;
   margin: auto;
 }
@@ -1122,7 +1133,7 @@ body .footer .container .contact .text-gp {
   margin-bottom: 12px;
 }
 body .footer .container .contact .text-gp .underline {
-  color: #fcfc82;
+  color: #0064C9;
   text-decoration: underline !important;
   margin-right: 12px;
 }
@@ -1143,6 +1154,7 @@ body .breadcrumb {
   padding: 0;
   margin: 0;
   margin-bottom: 20px;
+  padding-top: 16px;
 }
 @media (max-width: 768px) {
   body .breadcrumb {
@@ -1157,6 +1169,11 @@ body .breadcrumb {
 }
 body .breadcrumb .container {
   padding: 0;
+}
+@media (max-width: 1024px) {
+  body .breadcrumb .container {
+    padding: 0 32px;
+  }
 }
 @media (max-width: 568px) {
   body .breadcrumb .container {
@@ -1227,11 +1244,6 @@ body form {
   border-radius: 20px;
   margin: auto;
 }
-@media (max-width: 1024px) {
-  body form {
-    padding: 0 32px;
-  }
-}
 @media (max-width: 568px) {
   body form {
     border-radius: 0;
@@ -1239,11 +1251,6 @@ body form {
     max-width: unset;
     width: 100%;
     background-color: transparent;
-  }
-}
-@media (max-width: 568px) {
-  body form {
-    padding: 0 24px;
   }
 }
 body form .notice {
@@ -1339,15 +1346,12 @@ body form .form-gp .label-withButton button {
 body form .tab-choice .item {
   display: flex;
   justify-content: start;
-  align-items: start;
+  align-items: center;
   flex-wrap: wrap;
 }
 @media (max-width: 568px) {
   body form .tab-choice .item {
-    width: 100%;
-  }
-  body form .tab-choice .item:not(:nth-last-child(1)) {
-    margin-bottom: 16px;
+    width: 50%;
   }
 }
 body form .tab-choice h5 {
@@ -1384,14 +1388,20 @@ body form .item-column label {
   color: #595757;
 }
 body form .choice-gp {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: start;
+  align-items: center;
 }
 @media (max-width: 768px) {
   body form .choice-gp {
     justify-content: space-between;
+  }
+}
+@media (max-width: 568px) {
+  body form .choice-gp {
+    margin-bottom: 0;
   }
 }
 body form .choice-gp label {
@@ -1401,6 +1411,9 @@ body form .choice-gp label {
   vertical-align: middle;
   font-size: 1rem;
   text-align: center;
+}
+body form .choice-gp label:nth-last-child(1), body form .choice-gp label:nth-last-child(2) {
+  margin-bottom: 0 !important;
 }
 @media (max-width: 768px) {
   body form .choice-gp label {
@@ -1420,15 +1433,17 @@ body form .choice-gp input:checked + .button {
 body form .choice-gp .btn {
   width: initial;
   margin: 0 8px;
-  margin-bottom: 20px;
   padding: 3px 8px;
   font-weight: bold;
 }
-@media (max-width: 768px) {
-  body form .choice-gp .btn {
+@media (max-width: 568px) {
+  body form .choice-gp .btn.btn-outline-primary {
+    width: 100%;
     margin: 0;
-    margin-bottom: 16px;
-    width: 45%;
+    margin-bottom: 20px;
+  }
+  body form .choice-gp .btn.btn-outline-primary:last-of-type {
+    margin-bottom: 0;
   }
 }
 body form .choice-gp .button {
@@ -1450,6 +1465,48 @@ body form .choice-gp .space {
   body form .choice-gp .space {
     width: 45%;
     display: none;
+  }
+}
+body form .choice-total {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+}
+@media (max-width: 568px) {
+  body form .choice-total {
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+}
+@media (max-width: 568px) {
+  body form .choice-total h5 {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+}
+body form .choice-total .btn {
+  width: initial;
+  margin: 0 8px;
+  padding: 3px 8px;
+  font-weight: bold;
+}
+@media (max-width: 568px) {
+  body form .choice-total .btn.btn-outline-primary {
+    width: 45%;
+    margin: 0;
+  }
+}
+@media (max-width: 320px) {
+  body form .choice-total .btn.btn-outline-primary {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 12px;
+  }
+  body form .choice-total .btn.btn-outline-primary:last-of-type {
+    margin-bottom: 0;
   }
 }
 body form .datetime {
@@ -1740,6 +1797,9 @@ body table td {
 }
 body table tr:nth-child(even) {
   background-color: rgba(174, 215, 243, 0.1);
+}
+body table tr i {
+  margin-left: 4px;
 }
 body table tr th {
   background-color: rgba(174, 215, 243, 0.5);
@@ -2046,12 +2106,32 @@ body .fc-daygrid .fc-scrollgrid td {
     height: 2em;
   }
 }
+body .loader {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  z-index: 1050;
+}
+body .line-spin-fade-loader {
+  position: fixed;
+  z-index: 1060;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+body .line-spin-fade-loader > div {
+  background-color: #fff;
+}
+body .loader-inner {
+  margin: 30px;
+}
 body main {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   position: relative;
-  padding-top: 76px;
+  padding-top: 60px;
 }
 @media (max-width: 768px) {
   body main {
@@ -2112,7 +2192,7 @@ body main .section-normal .nav.nav-pills .nav-item {
   }
 }
 body main .section-normal .nav.nav-pills .nav-item a.tab {
-  border: solid 1px #fcfc82;
+  border: solid 1px #0064C9;
   padding: 4px 8px;
   font-size: 1rem;
   color: black;
@@ -2124,10 +2204,10 @@ body main .section-normal .nav.nav-pills .nav-item a.tab {
   }
 }
 body main .section-normal .nav.nav-pills .nav-item .active {
-  background-color: rgba(252, 252, 130, 0.1);
+  background-color: rgba(0, 100, 201, 0.1);
 }
 body main .section-normal .tab-content {
-  background-color: rgba(252, 252, 130, 0.1);
+  background-color: rgba(0, 100, 201, 0.1);
   padding: 16px 24px;
   margin-top: 12px;
 }
@@ -2271,6 +2351,7 @@ body main .section-map {
 }
 body main .section-map .map {
   width: 30%;
+  margin-right: 40px;
 }
 @media (max-width: 1024px) {
   body main .section-map .map {
@@ -2288,10 +2369,10 @@ body main .section-map .map svg path {
 }
 body main .section-map .map svg polygon:hover,
 body main .section-map .map svg path:hover {
-  fill: #fcfc82;
+  fill: #0064C9;
 }
 body main .section-map .content {
-  width: 60%;
+  width: 70%;
   display: flex;
   align-items: start;
   justify-content: space-between;

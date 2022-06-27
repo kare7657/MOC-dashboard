@@ -8,6 +8,8 @@
 	<!-- Font Awesome Icons -->
 	<link rel="stylesheet" href="fontawesome-free/css/all.min.css">
 	<link rel="stylesheet" href="scss/bootstrap.4.2.css">
+	<!-- Loaders 網頁讀取-->
+	<link rel="stylesheet" href="scss/loaders.css" />
 	<link rel="stylesheet" href="scss/style.css">
 </head>
 
@@ -15,6 +17,12 @@
 	<!-- navbar -->
 	<header id="header"></header>
 	<main>
+		<!-- loading 顯示 -->
+		<div class="loader"> <!-- class加 d-none 可隱藏-->
+			<div class="loader-inner line-spin-fade-loader">
+			</div>
+		</div>
+
 		<!-- breadcrumb -->
 		<div class="breadcrumb">
 			<div class="container">
@@ -136,6 +144,8 @@
 	<script src="js/popper.min.js"></script>
 	<!-- chartjs -->
 	<script src="js/echarts.js"></script>
+	<!-- Loaders 網頁讀取-->
+	<script src="js/loaders.css.js"></script>
 
 	<!-- mobile-menu -->
 	<script>

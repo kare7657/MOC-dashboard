@@ -39,21 +39,20 @@
     font-family: "微軟正黑體" !important;
     box-sizing: border-box !important;
     .container {
-        width: 1110px;
+        max-width: 1220px;
         margin: auto;
         padding: $p-S 0;
         @include web-S {
+            max-width: unset;
+            padding: 0 $p-S;
             padding-top: $p-XS;
         }
         @include pad() {
             width: 100%;
         }
         @include mobile-L() {
-            padding: 0 $p-XS;
             padding-top: $p-XS;
         }
-        // @include mobile-L {
-        // }
     }
     h1 {
         font-size: $size-h1;
@@ -119,6 +118,14 @@
     .notice {
         color: $notice;
     }
+    .unit {
+        color: $bk-50;
+        text-align: right;
+        @include mobile-L() {
+            margin-top: $p-XXS;
+        }
+    }
+
     //font-awesome
     .fa,
     .fas,
@@ -192,7 +199,7 @@
         }
         &[type="submit"],
         &[type="reset"] {
-            width: 100%;
+            // width: 100%;
             height: 40px;
             background-color: $primary-dark;
             color: white;
@@ -326,10 +333,6 @@
         font-weight: bold;
         line-height: inherit;
         cursor: pointer;
-        // &:hover:not(.close) {
-        //     background-color: $primary-default;
-        //     transition-duration: 0.5s;
-        // }
         &[disabled] {
             background-color: $primary-tint;
             cursor: not-allowed;
@@ -341,19 +344,8 @@
             margin-right: $m-XS;
         }
         &.more {
-            // font-size: $size-h5;
             padding: $m-XXS/2 $p-XS;
             background-color: $primary-default;
-            // color: white;
-            // border-radius: 4px;
-            // font-weight: normal;
-            // line-height: inherit;
-            // text-align: right;
-            // @include mobile-L {
-            //     width: 100%;
-            //     text-align: center;
-            //     font-size: $size-h5;
-            //     padding: $m-XXS $p-XS;
         }
         &.notice {
             background-color: $notice !important;
@@ -683,7 +675,7 @@
             }
             .top {
                 width: 100%;
-                max-width: 1110px;
+                max-width: 1220px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -692,6 +684,7 @@
                 @include web-S() {
                     margin-left: $m-S;
                     padding-right: $p-XXS;
+                    max-width: unset;
                 }
                 .left {
                     // width: 90%;
@@ -758,7 +751,7 @@
                 background-color: $primary-default;
                 color: white;
                 .nav-gp {
-                    width: 1110px;
+                    width: 1220px;
                     display: flex;
                     margin: auto;
                     @include web-S() {
@@ -983,7 +976,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                a{
+                a {
                     height: 60px;
                     display: flex;
                     justify-content: center;
@@ -1157,6 +1150,7 @@
         padding: 0;
         margin: 0;
         margin-bottom: $m-S;
+        padding-top: $p-XS;
         @include pad() {
             padding: $m-XXS 0;
             background-color: $primary-table;
@@ -1166,6 +1160,9 @@
         }
         .container {
             padding: 0;
+            @include web-S {
+                padding: 0 $p-M;
+            }
             @include mobile-L() {
                 width: 100%;
                 margin: 0;
@@ -1313,9 +1310,6 @@
     form {
         border-radius: 20px;
         margin: auto;
-        @include web-S() {
-            padding: 0 $p-M;
-        }
         @include mobile-L {
             border-radius: 0;
             padding: 0;
@@ -1323,9 +1317,7 @@
             width: 100%;
             background-color: transparent;
         }
-        @include mobile-L() {
-            padding: 0 $p-S;
-        }
+
         .notice {
             padding-left: $m-XXS;
         }
@@ -1414,13 +1406,10 @@
             .item {
                 display: flex;
                 justify-content: start;
-                align-items: start;
+                align-items: center;
                 flex-wrap: wrap;
                 @include mobile-L() {
-                    width: 100%;
-                    &:not(:nth-last-child(1)) {
-                        margin-bottom: $p-XS;
-                    }
+                    width: 50%;
                 }
             }
             h5 {
@@ -1458,12 +1447,17 @@
             }
         }
         .choice-gp {
+            width: 100%;
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
-            justify-content: start;
+            align-items: center;
+            // margin-bottom: $m-S;
             @include pad() {
                 justify-content: space-between;
+            }
+            @include mobile-L() {
+                margin-bottom: 0;
             }
             label {
                 width: 20%;
@@ -1472,6 +1466,10 @@
                 vertical-align: middle;
                 font-size: $size-p;
                 text-align: center;
+                &:nth-last-child(1),
+                &:nth-last-child(2) {
+                    margin-bottom: 0 !important;
+                }
                 @include pad {
                     margin: 0;
                     margin-bottom: $p-XS;
@@ -1486,16 +1484,21 @@
                 background: #007bff;
                 color: #fff;
             }
+
             .btn {
                 width: initial;
                 margin: 0 $p-XXS;
-                margin-bottom: $m-S;
                 padding: 3px 8px;
                 font-weight: bold;
-                @include pad {
-                    margin: 0;
-                    margin-bottom: $p-XS;
-                    width: 45%;
+                &.btn-outline-primary {
+                    @include mobile-L() {
+                        width: 100%;
+                        margin: 0;
+                        margin-bottom: $m-S;
+                        &:last-of-type {
+                            margin-bottom: 0;
+                        }
+                    }
                 }
             }
             .button {
@@ -1506,10 +1509,6 @@
                 color: #333;
                 cursor: pointer;
                 width: 100%;
-                // &:hover {
-                //     background: #bbb;
-                //     color: #fff;
-                // }
             }
             .round {
                 border-radius: 2px;
@@ -1519,6 +1518,44 @@
                 @include pad() {
                     width: 45%;
                     display: none;
+                }
+            }
+        }
+        .choice-total {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: $m-S;
+            @include mobile-L() {
+                justify-content: space-between;
+                margin-bottom: $p-XS;
+            }
+            h5 {
+                @include mobile-L() {
+                    width: 100%;
+                    margin-bottom: $m-XS;
+                }
+            }
+            .btn {
+                width: initial;
+                margin: 0 $p-XXS;
+                padding: 3px 8px;
+                font-weight: bold;
+                &.btn-outline-primary {
+                    @include mobile-L() {
+                        width: 45%;
+                        margin: 0;
+                    }
+                    @include mobile-XS() {
+                        width: 100%;
+                        margin: 0;
+                        margin-bottom: $m-XS;
+                        &:last-of-type {
+                            margin-bottom: 0;
+                        }
+                    }
                 }
             }
         }
@@ -1775,6 +1812,9 @@
         tr {
             &:nth-child(even) {
                 background-color: rgba($color: $primary-tint, $alpha: 0.1);
+            }
+            i {
+                margin-left: $m-XXS;
             }
             th {
                 background-color: rgba($color: $primary-tint, $alpha: 0.5);
