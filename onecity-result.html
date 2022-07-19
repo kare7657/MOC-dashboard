@@ -36,9 +36,54 @@
 				<p>補助對象：縣市，團體，個人，中央機關及其所屬</p>
 			</div>
 			<div class="chart-gp">
-				<h3>總申請金額比例圖</h3>
+				<div class="text-gp">
+					<h3>總申請金額比例圖</h3>
+					<div class="btn-gp">
+						<a href="" class="btn btn-outline-primary"><i class="fas fa-plus"></i>待列印</a>
+					</div>
+				</div>
 				<div id="pieChart_money" class="pie-chart"></div>
-				<h3>總申請件數比例圖</h3>
+			</div>
+			<p class="notice"><i class="fas fa-table mr-2"></i>chart-mb-table 手機版圖表表格，網頁隱藏、手機顯示</p>
+				<!-- 手機版圖表表格 -->
+				<table class="chart-mb-table">
+					<thead>
+						<tr>
+							<th>類型</th>
+							<th>金額 (元)</th>
+							<th>百分比</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a href="onecity-state.html">申請中</a></td>
+							<td>35000</td>
+							<td>35%</td>
+						</tr>
+						<tr>
+							<td><a href="onecity-state.html">審查中</a></td>
+							<td>30000</td>
+							<td>30%</td>
+						</tr>
+						<tr>
+							<td><a href="onecity-state-approved.html">已核定</a></td>
+							<td>30000</td>
+							<td>30%</td>
+						</tr>
+						<tr>
+							<td><a href="onecity-state.html">不補助</a></td>
+							<td>5000</td>
+							<td>5%</td>
+						</tr>
+					</tbody>
+				</table>
+			<div class="chart-gp">
+				<div class="text-gp">
+					<h3>總申請件數比例圖</h3>
+					<div class="btn-gp">
+						<a href="" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i>刪除</a>
+					</div>
+				</div>
 				<div id="pieChart_num" class="pie-chart"></div>
 			</div>
 			<table class="mb-separate">

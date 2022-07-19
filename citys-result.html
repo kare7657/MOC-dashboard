@@ -35,8 +35,13 @@
 				<p>補助對象：縣市，團體</p>
 			</div>
 			<div class="chart-gp">
-				<h3>總申請件數</h3>
-				<button type="button" onclick="javascript:location.href='citys-totalCity-Num.html'">詳細資料</button>
+				<div class="text-gp">
+					<h3>總申請件數</h3>
+					<div class="btn-gp">
+						<button type="button" onclick="javascript:location.href='citys-totalCity-Num.html'">詳細資料</button>
+						<a href="" class="btn btn-outline-primary"><i class="fas fa-plus"></i>待列印</a>
+					</div>
+				</div>
 				<div id="lineChart_num" class="line-chart"></div>
 			</div>
 			<table>
@@ -48,11 +53,6 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td data-title="縣市">全部</td>
-						<td data-title="總申請件數 (件)">1000</td>
-						<td data-title="核定件數 (件)">480</td>
-					</tr>
 					<tr>
 						<td data-title="縣市">臺北市</td>
 						<td data-title="總申請件數 (件)">300</td>
@@ -68,11 +68,21 @@
 						<td data-title="總申請件數 (件)">500</td>
 						<td data-title="核定件數 (件)">300</td>
 					</tr>
+					<tr>
+						<td data-title="縣市">全部</td>
+						<td data-title="總申請件數 (件)">1000</td>
+						<td data-title="核定件數 (件)">480</td>
+					</tr>
 				</tbody>
 			</table>
 			<div class="chart-gp">
-				<h3>總核定金額</h3>
-				<button type="button" onclick="javascript:location.href='citys-totalCity-Money.html'">詳細資料</button>
+				<div class="text-gp">
+					<h3>總核定金額</h3>
+					<div class="btn-gp">
+						<button type="button" onclick="javascript:location.href='citys-totalCity-Money.html'">詳細資料</button>
+						<a href="" class="btn btn-outline-primary"><i class="fas fa-plus"></i>待列印</a>
+					</div>
+				</div>
 				<div id="lineChart_money" class="line-chart"></div>
 			</div>
 			<table>
@@ -84,11 +94,6 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td data-title="縣市">全部</td>
-						<td data-title="申請總金額 (元)">300000</td>
-						<td data-title="核定金額 (元)">150000</td>
-					</tr>
 					<tr>
 						<td data-title="縣市">臺北市</td>
 						<td data-title="申請總金額 (元)">100000</td>
@@ -104,44 +109,85 @@
 						<td data-title="申請總金額 (元)">120000</td>
 						<td data-title="核定金額 (元)">50000</td>
 					</tr>
+					<tr>
+						<td data-title="縣市">全部</td>
+						<td data-title="申請總金額 (元)">300000</td>
+						<td data-title="核定金額 (元)">150000</td>
+					</tr>
 				</tbody>
 			</table>
 			<div class="chart-gp">
-				<h3>核定金額≥5000萬總金額</h3>
+				<div class="text-gp">
+					<h3>核定金額≥5000萬總金額</h3>
+					<div class="btn-gp">
+						<a href="" class="btn btn-outline-primary"><i class="fas fa-plus"></i>待列印</a>
+					</div>
+				</div>
 				<div id="lineChart_money5000" class="line-chart"></div>
 			</div>
 			<div class="chart-gp">
-				<h3>核定件數≥5000萬總件數</h3>
+				<div class="text-gp">
+					<h3>核定件數≥5000萬總件數</h3>
+					<div class="btn-gp">
+						<a href="" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i>刪除</a>
+					</div>
+				</div>
 				<div id="lineChart_num5000" class="line-chart"></div>
 			</div>
-			<table>
+			<h3>案件明細查詢</h3>
+			<table class="mb-separate">
 				<thead>
 					<tr>
-						<th>縣市</th>
-						<th>核定件數≥5000萬總金額 (元)</th>
-						<th>核定件數≥5000萬總件數 (件)</th>
+						<th rowspan="2">縣市</th>
+						<th colspan="2">核定金額&le;1000萬</th>
+						<th colspan="2">1000萬&lt;核定金額&lt;5000萬</th>
+						<th colspan="2">核定金額&ge;5000萬</th>
+					</tr>
+					<tr>
+						<th>總金額 (元)</th>
+						<th>總件數 (件)</th>
+						<th>總金額 (元)</th>
+						<th>總件數 (件)</th>
+						<th>總金額 (元)</th>
+						<th>總件數 (件)</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td data-title="縣市">全部</td>
-						<td data-title="核定件數≥5000萬總金額 (元)">470000</td>
-						<td data-title="核定件數≥5000萬總件數 (件)">180</td>
-					</tr>
-					<tr>
 						<td data-title="縣市">臺北市</td>
-						<td data-title="核定件數≥5000萬總金額 (元)">120000</td>
-						<td data-title="核定件數≥5000萬總件數 (件)">90</td>
+						<td data-title="核定金額&le;1000萬總金額 (元)">470000</td>
+						<td data-title="核定金額&le;1000萬總件數 (件)">180</td>
+						<td data-title="1000萬&lt;核定金額&lt;5000萬總金額 (元)">470000</td>
+						<td data-title="1000萬&lt;核定金額&lt;5000萬總件數 (件)">180</td>
+						<td data-title="核定金額&ge;5000萬總金額 (元)">470000</td>
+						<td data-title="核定金額&ge;5000萬總件數 (件)">180</td>
 					</tr>
 					<tr>
 						<td data-title="縣市">新竹市</td>
-						<td data-title="核定件數≥5000萬總金額 (元)">200000</td>
-						<td data-title="核定件數≥5000萬總件數 (件)">40</td>
+						<td data-title="核定金額&le;1000萬總金額 (元)">470000</td>
+						<td data-title="核定金額&le;1000萬總件數 (件)">180</td>
+						<td data-title="1000萬&lt;核定金額&lt;5000萬總金額 (元)">470000</td>
+						<td data-title="1000萬&lt;核定金額&lt;5000萬總件數 (件)">180</td>
+						<td data-title="核定金額&ge;5000萬總金額 (元)">470000</td>
+						<td data-title="核定金額&ge;5000萬總件數 (件)">180</td>
 					</tr>
 					<tr>
 						<td data-title="縣市">雲林縣</td>
-						<td data-title="核定件數≥5000萬總金額 (元)">150000</td>
-						<td data-title="核定件數≥5000萬總件數 (件)">50</td>
+						<td data-title="核定金額&le;1000萬總金額 (元)">470000</td>
+						<td data-title="核定金額&le;1000萬總件數 (件)">180</td>
+						<td data-title="1000萬&lt;核定金額&lt;5000萬總金額 (元)">470000</td>
+						<td data-title="1000萬&lt;核定金額&lt;5000萬總件數 (件)">180</td>
+						<td data-title="核定金額&ge;5000萬總金額 (元)">470000</td>
+						<td data-title="核定金額&ge;5000萬總件數 (件)">180</td>
+					</tr>
+					<tr>
+						<td data-title="縣市">全部</td>
+						<td data-title="核定金額&le;1000萬總金額 (元)">470000</td>
+						<td data-title="核定金額&le;1000萬總件數 (件)">180</td>
+						<td data-title="1000萬&lt;核定金額&lt;5000萬總金額 (元)">470000</td>
+						<td data-title="1000萬&lt;核定金額&lt;5000萬總件數 (件)">180</td>
+						<td data-title="核定金額&ge;5000萬總金額 (元)">470000</td>
+						<td data-title="核定金額&ge;5000萬總件數 (件)">180</td>
 					</tr>
 				</tbody>
 			</table>
@@ -151,10 +197,11 @@
 	<!-- jQuery Knob -->
 	<script src="js/jquery.min.js"></script>
 	<!-- bootstrap -->
-	<script src="js/bootstrap.min.4.2.js"></script>
 	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.4.2.js"></script>
 	<!-- chartjs -->
 	<script src="js/echarts.js"></script>
+
 
 	<!-- mobile-menu -->
 	<script>
@@ -390,7 +437,6 @@
 
 		lineChart_num5000.setOption(option);
 	</script>
-
 
 </body>
 

@@ -38,12 +38,22 @@
 				<p>補助對象：縣市，團體</p>
 			</div>
 			<div class="chart-gp">
-				<h3>總申請件數比例圖</h3>
-				<button type="button" onclick="javascript:location.href='citys-totalApply.html'" >詳細資料</button>
+				<div class="text-gp">
+					<h3>總申請件數比例圖</h3>
+					<div class="btn-gp">
+						<button type="button" onclick="javascript:location.href='citys-totalApply.html'" >詳細資料</button>
+						<a href="" class="btn btn-outline-primary"><i class="fas fa-plus"></i>待列印</a>
+					</div>
+				</div>
 				<div id="pieChart_applyNum" class="pie-chart"></div>
 			</div>
 			<div class="chart-gp">
-				<h3>核定件數比例圖</h3>
+				<div class="text-gp">
+					<h3>核定件數比例圖</h3>
+					<div class="btn-gp">
+						<a href="" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i>刪除</a>
+					</div>
+				</div>
 				<div id="pieChart_approvedNum" class="pie-chart"></div>
 			</div>
 
@@ -53,8 +63,8 @@
 	<!-- jQuery Knob -->
 	<script src="js/jquery.min.js"></script>
 	<!-- bootstrap -->
-	<script src="js/bootstrap.min.4.2.js"></script>
 	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.4.2.js"></script>
 	<!-- chartjs -->
 	<script src="js/echarts.js"></script>
 

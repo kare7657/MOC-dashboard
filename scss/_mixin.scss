@@ -113,7 +113,7 @@
     a {
         text-decoration: none !important;
         list-style: none !important;
-        color: #007bff;
+        color: $bs-primary;
     }
     .notice {
         color: $notice;
@@ -325,7 +325,7 @@
     //按鈕
     button {
         font-size: $size-h5;
-        padding: $m-XXS $p-S;
+        padding: $m-XXS $p-XS;
         background-color: $primary-dark;
         border-radius: 4px;
         border: none;
@@ -1084,24 +1084,12 @@
                 .text-gp {
                     margin-bottom: $m-XS;
                     .underline {
-                        color: $secondary;
+                        color: $bs-primary;
                         text-decoration: underline !important;
                         margin-right: $m-XS;
                     }
                 }
             }
-            // .qr {
-            //     img {
-            //         width: 100%;
-            //         height: 100%;
-            //         max-width: 90px;
-            //         max-height: 90px;
-            //         @include mobile-L() {
-            //             max-width: 150px;
-            //             margin-top: $m-XS;
-            //         }
-            //     }
-            // }
             .copyright {
                 width: 100%;
                 color: white;
@@ -1481,7 +1469,7 @@
                 display: none;
             }
             input:checked + .button {
-                background: #007bff;
+                background: $bs-primary;
                 color: #fff;
             }
 
@@ -1807,7 +1795,7 @@
         th,
         td {
             border: 1px solid $primary-tint;
-            padding: $p-XXS;
+            padding: $p-XXS $m-XS;
         }
         tr {
             &:nth-child(even) {
@@ -1817,13 +1805,15 @@
                 margin-left: $m-XXS;
             }
             th {
-                background-color: rgba($color: $primary-tint, $alpha: 0.5);
+                background-color: #d6ebf9;
                 text-align: right;
+                position: sticky;
+                top: 59px;
                 @include mobile-L {
                     text-align: right;
-                    &:nth-child(1) {
-                        width: 25%;
-                    }
+                    // &:nth-child(1) {
+                    //     width: 25%;
+                    // }
                 }
             }
             td {
@@ -1835,12 +1825,20 @@
                 }
             }
             .btn {
-                margin: 0 $m-XS;
+                margin: 0;
+                padding: $m-XXS $p-XXS;
+                margin-right: $p-XXS;
+                &:last-child {
+                    margin-right: 0;
+                }
                 @include pad {
                     margin: $m-XS $m-XS;
                 }
                 @include mobile-L {
                     margin: $m-XS $m-XS $m-XS 0 !important;
+                }
+                i {
+                    margin-right: $p-XXS;
                 }
             }
             .btn-primary {
@@ -1848,29 +1846,29 @@
             }
         }
     }
-    .rowspan {
-        .color {
-            background-color: rgba(167, 229, 255, 0.1) !important;
-        }
-        tr {
-            &:nth-child(even) {
-                background-color: white;
-            }
-        }
-        th {
-            @include pad {
-                &:nth-child(1) {
-                    width: 23% !important;
-                }
-                &:nth-child(3) {
-                    width: 15% !important;
-                }
-            }
-            @include mobile-L() {
-                width: initial;
-            }
-        }
-    }
+    // .rowspan {
+    //     .color {
+    //         background-color: rgba(167, 229, 255, 0.1) !important;
+    //     }
+    //     tr {
+    //         &:nth-child(even) {
+    //             background-color: white;
+    //         }
+    //     }
+    //     th {
+    //         @include pad {
+    //             &:nth-child(1) {
+    //                 width: 23% !important;
+    //             }
+    //             &:nth-child(3) {
+    //                 width: 15% !important;
+    //             }
+    //         }
+    //         @include mobile-L() {
+    //             width: initial;
+    //         }
+    //     }
+    // }
     .mb-separate {
         table-layout: fixed;
         thead {
@@ -1889,11 +1887,13 @@
                 }
             }
             th {
-                background-color: rgba($color: $primary-tint, $alpha: 0.5);
-                text-align: center;
+                background-color: #d6ebf9;
+                text-align: right;
+                position: sticky;
+                top: 59px;
             }
             td {
-                text-align: center;
+                text-align: right;
                 @include mobile-L {
                     display: block;
                     flex-wrap: wrap;
@@ -1912,6 +1912,12 @@
                     }
                 }
             }
+        }
+    }
+    .chart-mb-table {
+        display: none;
+        @include mobile-L() {
+            display: table;
         }
     }
 }

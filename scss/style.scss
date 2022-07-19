@@ -171,19 +171,61 @@ body {
             // chart
             .chart-gp {
                 height: 100%;
+                .text-gp {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    margin-top: $p-S;
+                    margin-bottom: $p-XXS;
+                    border-top: solid 1px $bk-20;
+                    padding-top: $p-XS;
+
+                    h3 {
+                        margin: 0;
+                        @include mobile-L {
+                            width: 100%;
+                        }
+                    }
+                    .btn-gp {
+                        margin: 0;
+                        padding: 0;
+                        display: flex;
+                        @include mobile-L {
+                            flex-wrap: wrap;
+                            width: 100%;
+                        }
+                        .btn {
+                            margin: 0;
+                            margin-left: $p-XS;
+                            padding: $m-XXS $p-XS;
+                            font-size: $size-h5;
+                            font-weight: bold;
+                            @include mobile-L {
+                                margin-left: 0;
+                                margin-top: $p-XS;
+                                width: 100%;
+                            }
+                            i {
+                                margin-right: $p-XXS;
+                            }
+                        }
+                    }
+                }
                 h3 {
                     display: inline-block;
                     @include mobile-L {
                         width: 100%;
                     }
                 }
-                button {
+                button:not(.btn-outline-primary) {
                     margin-left: $m-XS;
-                    background-color: #007bff;
+                    margin-right: 0;
+                    background-color: $bs-primary;
                     @include mobile-L {
                         width: 100%;
                         margin-left: 0;
-                        margin-top: $m-XS;
+                        margin-top: $p-XS;
                     }
                 }
                 .pie-chart {
@@ -269,7 +311,7 @@ body {
                     path {
                         cursor: pointer;
                         &:hover {
-                            fill: $secondary;
+                            filter: opacity(0.9);
                         }
                     }
                 }
