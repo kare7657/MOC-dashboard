@@ -75,6 +75,14 @@
   word-wrap: break-word;
   word-break: break-all;
 }
+* ::-moz-selection {
+  background-color: #007bff;
+  color: white;
+}
+* ::selection {
+  background-color: #007bff;
+  color: white;
+}
 * .ellipsis {
   overflow: hidden;
   white-space: nowrap;
@@ -1808,6 +1816,7 @@ body table tr th {
 @media (max-width: 568px) {
   body table tr th {
     text-align: right;
+    top: 50px;
   }
 }
 body table tr td {
@@ -1869,6 +1878,11 @@ body .mb-separate tr th {
   position: -webkit-sticky;
   position: sticky;
   top: 59px;
+}
+@media (max-width: 568px) {
+  body .mb-separate tr th {
+    top: 50px;
+  }
 }
 body .mb-separate tr td {
   text-align: right;
@@ -2153,12 +2167,13 @@ body main .brief-p {
 }
 body main .section-normal ul:not(.nav, .breadcrumb) {
   padding: 0;
+  margin: 0;
 }
 body main .section-normal ul:not(.nav, .breadcrumb) li:not(.nav-item) {
+  margin-left: 1.5rem;
+  list-style: square;
   line-height: 2;
   color: #333333;
-  list-style: decimal;
-  list-style-position: inside;
 }
 body main .section-normal h6 {
   margin-bottom: 8px;
@@ -2301,6 +2316,18 @@ body main .section-normal .chart-gp h3 {
     width: 100%;
   }
 }
+body main .section-normal .chart-gp .printview {
+  margin-top: 36px;
+}
+@media (max-width: 768px) {
+  body main .section-normal .chart-gp .printview {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+}
+body main .section-normal .chart-gp .printview h4 {
+  margin-bottom: 12px;
+}
 body main .section-normal .chart-gp button:not(.btn-outline-primary) {
   margin-left: 12px;
   margin-right: 0;
@@ -2320,6 +2347,7 @@ body main .section-normal .chart-gp .pie-chart {
 @media (max-width: 568px) {
   body main .section-normal .chart-gp .pie-chart {
     height: 500px;
+    margin-bottom: 0;
   }
 }
 body main .section-normal .chart-gp .line-chart {
@@ -2328,8 +2356,13 @@ body main .section-normal .chart-gp .line-chart {
 }
 @media (max-width: 568px) {
   body main .section-normal .chart-gp .line-chart {
+    width: 100%;
     height: 400px;
+    margin-bottom: 0;
   }
+}
+body main .section-normal .chart-gp img {
+  width: 100%;
 }
 body main .section-normal table {
   margin-top: 12px;

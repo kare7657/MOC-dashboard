@@ -80,11 +80,12 @@ body {
         .section-normal {
             ul:not(.nav, .breadcrumb) {
                 padding: 0;
+                margin: 0;
                 li:not(.nav-item) {
+                    margin-left: 1.5rem;
+                    list-style: square;
                     line-height: 2;
                     color: $text;
-                    list-style: decimal;
-                    list-style-position: inside;
                 }
             }
 
@@ -103,6 +104,7 @@ body {
             img {
                 margin-top: $m-XS;
             }
+
             .nav.nav-pills {
                 padding: 0;
                 .nav-item {
@@ -218,6 +220,16 @@ body {
                         width: 100%;
                     }
                 }
+                .printview {
+                    margin-top: $m-M;
+                    @include pad {
+                        margin-top: 0;
+                        margin-bottom: $m-S;
+                    }
+                    h4 {
+                        margin-bottom: $m-XS;
+                    }
+                }
                 button:not(.btn-outline-primary) {
                     margin-left: $m-XS;
                     margin-right: 0;
@@ -233,14 +245,20 @@ body {
                     height: 600px;
                     @include mobile-L {
                         height: 500px;
+                        margin-bottom: 0;
                     }
                 }
                 .line-chart {
                     margin: $m-S 0;
                     height: 600px;
                     @include mobile-L {
+                        width: 100%;
                         height: 400px;
+                        margin-bottom: 0;
                     }
+                }
+                img {
+                    width: 100%;
                 }
             }
             table {

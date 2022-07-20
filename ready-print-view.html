@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-hant">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>獎補助儀表板</title>
+	<!-- Font Awesome Icons -->
+	<link rel="stylesheet" href="fontawesome-free/css/all.min.css">
+	<link rel="stylesheet" href="scss/bootstrap.4.2.css">
+	<link rel="stylesheet" href="scss/style.css">
+</head>
+
+<body>
+	<!-- navbar -->
+	<header id="header"></header>
+	<main>
+		<!-- breadcrumb -->
+		<div class="breadcrumb">
+			<div class="container">
+				<ul>
+					<li><a href="index.html"><i class="fas fa-home"></i></a></li>
+					<li>></li>
+					<li><a href="ready-print.html">待列印圖表</a></li>
+					<li>></li>
+					<li><span>預覽列印</span></li>
+				</ul>
+			</div>
+		</div>
+		<h2 class="w-100 text-center">預覽列印</h2>
+		<section class="section-normal container">
+			<button class="mb-2">另存成PDF檔</button>
+			<div class="overview">
+				<p class="notice">1.若重新查詢單一縣市，會清空單一縣市已加入的圖表；重新操作多縣市查詢，也會清空多縣市查詢已加入的圖表。</p>
+				<p class="notice">2.若移除圖表，<u>需重新查詢加入該圖表!</u></p>
+			</div>
+			<div class="chart-gp">
+				<div class="text-gp">
+					<h3>總申請金額比例圖</h3>
+					<div class="btn-gp">
+						<a href="" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i>刪除</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-8">
+						<img src="img/print-chart.jpg" alt="">
+					</div>
+					<div class="col-lg-4 printview">
+						<h4>查詢條件</h4>
+						<p>加入時間：2022/07/18&nbsp;-&nbsp;17:00</p>
+						<p>縣市：基隆市</p>
+						<p>年度：109年</p>
+						<p>補助對象：</p>
+						<ul>
+							<li>縣市政府 (含其附屬機關及鄉鎮區公所)</li>
+							<li>團體 (立案團隊、協會、基金會、國立學校、縣立學校、私立學校、企業/公司、社區、非本國籍法人、其他)</li>
+							<li>個人 (自然人、非本國籍自然人)</li>
+							<li>中央機關及其所屬 (國立學校、文化部及附屬機關、中央機關及其所屬)</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="chart-gp">
+				<div class="text-gp">
+					<h3>總申請金額比例圖</h3>
+					<div class="btn-gp">
+						<a href="" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i>刪除</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-8">
+						<img src="img/print-chart.jpg" alt="">
+					</div>
+					<div class="col-lg-4 printview">
+						<h4>查詢條件</h4>
+						<p>加入時間：2022/07/18&nbsp;-&nbsp;17:00</p>
+						<p>縣市：基隆市</p>
+						<p>年度：109年</p>
+						<p>補助對象：</p>
+						<ul>
+							<li>縣市政府 (含其附屬機關及鄉鎮區公所)</li>
+							<li>團體 (立案團隊、協會、基金會、國立學校、縣立學校、私立學校、企業/公司、社區、非本國籍法人、其他)</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</section>
+	</main>
+
+	<!-- jQuery Knob -->
+	<script src="js/jquery.min.js"></script>
+	<!-- bootstrap -->
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.4.2.js"></script>
+	<!-- chartjs -->
+	<script src="js/echarts.js"></script>
+
+	<!-- mobile-menu -->
+	<script>
+		var fas = document.querySelector(".fas.fa-bars")
+		var navbar_nav = document.querySelector(".nav.navbar-nav")
+		var nav_item = document.querySelector(".nav-item.dropdown")
+		fas.onclick = function () {
+			if (navbar_nav.classList.contains("active-ul")) {
+				navbar_nav.classList.remove("active-ul")
+			} else {
+				navbar_nav.classList.add("active-ul")
+			}
+		}
+	</script>
+
+	<!-- 引入html header&footer -->
+	<script>
+		$(function () {
+			$("#header").load('header.html');
+		});
+	</script>
+
+	<!-- tab -->
+	<script>
+		var btn_year = document.querySelector("#year")
+		var btn_range = document.querySelector("#year_range")
+		var content = document.querySelector("#content1")
+		var content2 = document.querySelector("#content2")
+
+		function clearActive() {
+			content.classList.remove("active")
+			content2.classList.remove("active")
+		}
+
+		btn_year.onclick = function () {
+			clearActive()
+			content.classList.toggle("active")
+		}
+
+		btn_range.onclick = function () {
+			clearActive()
+			content2.classList.toggle("active")
+		}
+
+	</script>
+
+</body>
+
+</html>

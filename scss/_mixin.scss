@@ -69,7 +69,6 @@
         margin: 0;
         margin-bottom: $p-XXS;
         line-height: 1.25;
-        // text-align: center;
         &:not(:first-of-type) {
             margin-top: $m-S;
         }
@@ -104,6 +103,10 @@
         text-align: justify;
         word-wrap: break-word;
         word-break: break-all;
+    }
+    ::selection{
+        background-color: $bs-primary;
+        color: white;
     }
     .ellipsis {
         overflow: hidden;
@@ -1811,6 +1814,7 @@
                 top: 59px;
                 @include mobile-L {
                     text-align: right;
+                    top: 50px;
                     // &:nth-child(1) {
                     //     width: 25%;
                     // }
@@ -1891,6 +1895,9 @@
                 text-align: right;
                 position: sticky;
                 top: 59px;
+                @include mobile-L(){
+                    top: 50px;
+                }
             }
             td {
                 text-align: right;
