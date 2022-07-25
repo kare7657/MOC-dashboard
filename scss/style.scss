@@ -321,15 +321,21 @@ body {
                 @include web-S {
                     width: 35%;
                 }
+                @include mobile-L {
+                    margin-right: 0;
+                }
                 svg {
                     @include pad() {
-                        width: 80vw;
+                        width: 90vw;
                     }
-                    polygon,
-                    path {
+                    .city-gp{
                         cursor: pointer;
                         &:hover {
                             filter: opacity(0.9);
+                        }
+                        .cityname {
+                            font-size: $size-p;
+                            z-index: 100;
                         }
                     }
                 }

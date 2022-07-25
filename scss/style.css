@@ -2435,18 +2435,25 @@ body main .section-map .map {
     width: 35%;
   }
 }
-@media (max-width: 768px) {
-  body main .section-map .map svg {
-    width: 80vw;
+@media (max-width: 568px) {
+  body main .section-map .map {
+    margin-right: 0;
   }
 }
-body main .section-map .map svg polygon,
-body main .section-map .map svg path {
+@media (max-width: 768px) {
+  body main .section-map .map svg {
+    width: 90vw;
+  }
+}
+body main .section-map .map svg .city-gp {
   cursor: pointer;
 }
-body main .section-map .map svg polygon:hover,
-body main .section-map .map svg path:hover {
+body main .section-map .map svg .city-gp:hover {
   filter: opacity(0.9);
+}
+body main .section-map .map svg .city-gp .cityname {
+  font-size: 1rem;
+  z-index: 100;
 }
 body main .section-map .content {
   width: 70%;
