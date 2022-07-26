@@ -328,10 +328,13 @@ body {
                     @include pad() {
                         width: 90vw;
                     }
-                    .city-gp{
+                    .city-gp {
                         cursor: pointer;
                         &:hover {
                             filter: opacity(0.9);
+                            .cityname text {
+                                font-weight: bold;
+                            }
                         }
                         .cityname {
                             font-size: $size-p;

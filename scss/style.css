@@ -2451,6 +2451,9 @@ body main .section-map .map svg .city-gp {
 body main .section-map .map svg .city-gp:hover {
   filter: opacity(0.9);
 }
+body main .section-map .map svg .city-gp:hover .cityname text {
+  font-weight: bold;
+}
 body main .section-map .map svg .city-gp .cityname {
   font-size: 1rem;
   z-index: 100;
