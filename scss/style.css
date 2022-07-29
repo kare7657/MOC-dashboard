@@ -1800,6 +1800,17 @@ body table td {
   border: 1px solid #aed7f3;
   padding: 8px 12px;
 }
+body table thead {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 59px;
+}
+@media (max-width: 568px) {
+  body table thead {
+    text-align: right;
+    top: 50px;
+  }
+}
 body table tr:nth-child(even) {
   background-color: rgba(174, 215, 243, 0.1);
 }
@@ -1809,15 +1820,6 @@ body table tr i {
 body table tr th {
   background-color: #d6ebf9;
   text-align: right;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 59px;
-}
-@media (max-width: 568px) {
-  body table tr th {
-    text-align: right;
-    top: 50px;
-  }
 }
 body table tr td {
   color: #333333;
@@ -1856,9 +1858,16 @@ body table tr .btn-primary {
 body .mb-separate {
   table-layout: fixed;
 }
+body .mb-separate thead {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 59px;
+}
 @media (max-width: 568px) {
   body .mb-separate thead {
     display: none;
+    text-align: right;
+    top: 50px;
   }
 }
 @media (max-width: 568px) {
@@ -1875,14 +1884,6 @@ body .mb-separate {
 body .mb-separate tr th {
   background-color: #d6ebf9;
   text-align: right;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 59px;
-}
-@media (max-width: 568px) {
-  body .mb-separate tr th {
-    top: 50px;
-  }
 }
 body .mb-separate tr td {
   text-align: right;
