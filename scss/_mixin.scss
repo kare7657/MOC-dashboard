@@ -672,7 +672,7 @@
             justify-content: center;
             flex-wrap: wrap;
             align-items: center;
-            box-shadow: 5px 5px 20px rgba($color: $primary-tint, $alpha: 0.3);
+            box-shadow: 5px 5px 20px rgba($color: $bk-20, $alpha: 0.4);
             @include mobile-L() {
                 display: none;
             }
@@ -1818,10 +1818,14 @@
             th {
                 background-color: #d6ebf9;
                 text-align: right;
+                word-wrap: break-word;
+                word-break: break-all;
             }
             td {
                 color: $text;
                 text-align: right;
+                word-wrap: break-word;
+                word-break: break-all;
                 @include mobile-L {
                     flex-wrap: wrap;
                     text-align: right;
