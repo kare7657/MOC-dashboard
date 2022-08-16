@@ -60,6 +60,7 @@ body {
         position: relative;
         // padding-top: calc(60px + 16px);
         padding-top: 60px;
+        min-height: 100vh;
         @include pad {
             padding-top: 60px;
         }
@@ -304,13 +305,12 @@ body {
                     position: absolute;
                     bottom: 7%;
                     color: white;
-                    @include pad{
+                    @include pad {
                         bottom: 5%;
                     }
-                    @include mobile-XS{
+                    @include mobile-XS {
                         font-size: 1rem;
                     }
-
                 }
             }
         }
@@ -443,6 +443,22 @@ body {
                     margin-top: $m-XS;
                 }
             }
+            form{
+                padding: 0 $p-S;
+            }
+        }
+    }
+    .bg-img {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        object-fit: cover;
+        object-position: 0% center;
+        @include pad{
+            height: 200px;
+        }
+        @include mobile-L{
+            height: 100px;
         }
     }
 }

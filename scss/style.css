@@ -2148,6 +2148,7 @@ body main {
   flex-direction: column;
   position: relative;
   padding-top: 60px;
+  min-height: 100vh;
 }
 @media (max-width: 768px) {
   body main {
@@ -2576,4 +2577,26 @@ body main .section-login.container {
 }
 body main .section-login.container input[type=submit] {
   margin-top: 12px;
+}
+body main .section-login form {
+  padding: 0 24px;
+}
+body .bg-img {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 0% center;
+     object-position: 0% center;
+}
+@media (max-width: 768px) {
+  body .bg-img {
+    height: 200px;
+  }
+}
+@media (max-width: 568px) {
+  body .bg-img {
+    height: 100px;
+  }
 }/*# sourceMappingURL=style.css.map */
