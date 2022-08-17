@@ -60,6 +60,7 @@ body {
         position: relative;
         // padding-top: calc(60px + 16px);
         padding-top: 60px;
+        // height: 100%;
         min-height: 100vh;
         @include pad {
             padding-top: 60px;
@@ -445,6 +446,7 @@ body {
             }
             form{
                 padding: 0 $p-S;
+                padding-bottom: $p-2L;
             }
         }
     }
@@ -454,11 +456,12 @@ body {
         width: 100%;
         object-fit: cover;
         object-position: 0% center;
+        z-index: -1;
         @include pad{
             height: 200px;
         }
         @include mobile-L{
-            height: 100px;
+            height: 180px;
         }
     }
 }

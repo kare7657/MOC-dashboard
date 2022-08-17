@@ -2580,6 +2580,7 @@ body main .section-login.container input[type=submit] {
 }
 body main .section-login form {
   padding: 0 24px;
+  padding-bottom: 64px;
 }
 body .bg-img {
   position: absolute;
@@ -2589,6 +2590,7 @@ body .bg-img {
      object-fit: cover;
   -o-object-position: 0% center;
      object-position: 0% center;
+  z-index: -1;
 }
 @media (max-width: 768px) {
   body .bg-img {
@@ -2597,6 +2599,6 @@ body .bg-img {
 }
 @media (max-width: 568px) {
   body .bg-img {
-    height: 100px;
+    height: 180px;
   }
 }/*# sourceMappingURL=style.css.map */
