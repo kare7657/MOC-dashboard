@@ -1457,10 +1457,10 @@
                 vertical-align: middle;
                 font-size: $size-p;
                 text-align: center;
-                &:nth-last-child(1),
-                &:nth-last-child(2) {
-                    margin-bottom: 0 !important;
-                }
+                // &:nth-last-child(1),
+                // &:nth-last-child(2) {
+                //     margin-bottom: 0 !important;
+                // }
                 @include pad {
                     margin: 0;
                     margin-bottom: $p-XS;

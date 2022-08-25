@@ -291,15 +291,19 @@ body {
                 border-radius: 10px;
                 position: relative;
                 @include pad {
-                    width: 100%;
+                    margin: $m-S 0;
+                    width: 80%;
+                    height: auto;
+                }
+                @include mobile-L{
+                    margin: 0;
                     margin-bottom: $m-M;
                 }
                 img {
                     width: 100%;
-                    height: 100%;
-                    max-height: 350px;
+                    height: auto;
                     border-radius: 10px;
-                    object-fit: cover;
+                    object-fit: contain;
                 }
                 h3 {
                     margin-top: $m-S;
@@ -323,8 +327,31 @@ body {
             @include pad {
                 flex-wrap: wrap;
             }
+            .info {
+                @include pad {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                }
+                .text-gp {
+                    margin-bottom: $m-S;
+                    @include pad {
+                        width: 48%;
+                    }
+                    @include mobile-L {
+                        width: 100%;
+                    }
+                    .notice {
+                        padding: 0;
+                    }
+                    .note {
+                        font-size: $size-caption;
+                        color: $complementary;
+                    }
+                }
+            }
             .map {
-                width: 30%;
+                width: 37%;
                 margin-right: 40px;
                 @include web-S {
                     width: 35%;
@@ -352,7 +379,7 @@ body {
                 }
             }
             .content {
-                width: 70%;
+                width: 63%;
                 display: flex;
                 align-items: start;
                 justify-content: space-between;
@@ -366,29 +393,6 @@ body {
                     width: 47%;
                     @include pad {
                         width: 100%;
-                    }
-                    .info {
-                        @include pad {
-                            display: flex;
-                            justify-content: space-between;
-                            flex-wrap: wrap;
-                        }
-                        .text-gp {
-                            margin-bottom: $m-S;
-                            @include pad {
-                                width: 48%;
-                            }
-                            @include mobile-L {
-                                width: 100%;
-                            }
-                            .note {
-                                font-size: $size-caption;
-                                color: $complementary;
-                            }
-                            .notice {
-                                padding: 0;
-                            }
-                        }
                     }
                 }
                 .right {
@@ -434,7 +438,7 @@ body {
             }
             &.container {
                 padding: 0;
-                max-width: 600px;
+                max-width: 500px;
                 @include mobile-L {
                     margin: 0;
                     max-width: unset;
@@ -444,7 +448,7 @@ body {
                     margin-top: $m-XS;
                 }
             }
-            form{
+            form {
                 padding: 0 $p-S;
                 padding-bottom: $p-2L;
             }
@@ -457,11 +461,15 @@ body {
         object-fit: cover;
         object-position: 0% center;
         z-index: -1;
-        @include pad{
+        @include web-S {
+            height: 300px;
+        }
+        @include pad {
             height: 200px;
         }
-        @include mobile-L{
+        @include mobile-L {
             height: 180px;
+            object-position: 10% center;
         }
     }
 }
