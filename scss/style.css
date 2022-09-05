@@ -2374,8 +2374,8 @@ body main .section-normal table {
 body main .section-menu {
   display: flex;
   justify-content: space-between;
-  height: 80vh;
   align-items: center;
+  flex-wrap: wrap;
 }
 @media (max-width: 768px) {
   body main .section-menu {
@@ -2407,6 +2407,7 @@ body main .section-menu .block {
   body main .section-menu .block {
     margin: 0;
     margin-bottom: 36px;
+    width: 100%;
   }
 }
 body main .section-menu .block img {
@@ -2430,6 +2431,26 @@ body main .section-menu .block h3 {
 @media (max-width: 320px) {
   body main .section-menu .block h3 {
     font-size: 1rem;
+  }
+}
+body main .section-menu i {
+  margin-right: 8px;
+}
+body main .section-menu .alert {
+  border: solid 1px #aed7f3;
+  margin-top: 36px;
+  width: 100%;
+  border-radius: 6px;
+}
+@media (max-width: 768px) {
+  body main .section-menu .alert {
+    width: 80%;
+  }
+}
+@media (max-width: 568px) {
+  body main .section-menu .alert {
+    width: 100%;
+    margin-top: 0;
   }
 }
 body main .section-map {
@@ -2583,7 +2604,6 @@ body main .section-login.container input[type=submit] {
 }
 body main .section-login form {
   padding: 0 24px;
-  padding-bottom: 64px;
 }
 body .bg-img {
   position: absolute;
